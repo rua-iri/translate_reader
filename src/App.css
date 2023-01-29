@@ -1,38 +1,64 @@
 .App {
   text-align: center;
+  margin: 10px;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.focus-word {
+  min-height: 10rem;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.top-banner {
   display: flex;
-  flex-direction: column;
+  border-radius: 1rem;
+  margin-bottom: 1rem;
+  flex-direction: row-reverse;
+}
+
+.selected-word {
+  width: auto;
+  font-size: 3rem;
+  padding: 1rem 3rem;
+  line-height: 5rem;
+}
+
+.translations {
+  width: 100%;
+  direction: ltr;
+  font-size: 2rem;
+}
+
+.translation-words {
+  padding: 1rem;
+  line-height: 200%;
+  height: 10vh;
+  overflow: scroll;
+}
+
+.translation-example {
+  padding: 1rem;
+  line-height: 200%;
+  height: 20vh;
+  overflow: scroll;
+}
+
+.wordbox {
+  font-size: 2rem;
+  max-width: 100vw;
+  text-align: right;
+  overflow-wrap: break-word;
+  padding: 1rem;
+}
+
+.word-elem {
+  margin: 0.5rem;
   align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
 }
 
-.App-link {
-  color: #61dafb;
+.arab-text {
+  direction: rtl;
+  /* TODO add font for arabic text specifically */
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.gimme-outline {
+  outline: 1px solid red;
 }
