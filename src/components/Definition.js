@@ -3,24 +3,41 @@ import Translation from "./Translation";
 
 export default function Definition(props) {
 
-    //TODO give this good layout with singular, plural, defintion, pronunciation, example sentence etc
+    //TODO give this good layout with phonetic spelling, meaning, tense, root and verbForm
     //these should all be passed to the component via props
 
-    const [upperText, setUpperText] = React.useState({});
+    // TODO add a means by which the user can cycle through all possible meanings by clicking a button
+    const [upperText, setUpperText] = React.useState();
+    const [possibleMeanings, setPossibleMeanings] = React.useState([]);
+
+
+    const makeAPICall = async (apiLink) => {
+        try {
+            const response = await fetch(apiLink, { mode: 'cors' });
+            const data = await response.json();
+            setPossibleMeanings(data);
+            data.forEach(dat => {
+                console.log({ dat })
+            });
+
+        }
+        catch (e) {
+            console.log(e)
+        }
+    }
+
 
 
     React.useEffect(() => {
         if (props.selectedWord) {
-
+            //set the uppertext word and check the api for a definition
             setUpperText(props.selectedWord);
-
             const apiUrl = "https://rua-iri.com/api/word?q=" + props.selectedWord;
-            fetch(apiUrl)
-                .then(response => response.json())
-                .then(response => console.log(response))
-                .catch(err => console.error(err));
+            makeAPICall(apiUrl);
+
         }
     }, [props]);
+
 
 
     return (
@@ -29,7 +46,7 @@ export default function Definition(props) {
                 {upperText}
             </div>
             <div className="translations gimme-outline">
-                <Translation translatedWord={upperText?.translations} examp={upperText.context?.examples} />
+                <Translation allTranslations={possibleMeanings} />
             </div>
         </div>
     )
