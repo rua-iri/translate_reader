@@ -25,12 +25,14 @@ function App() {
   const wordAra = wordString.split(" ");
 
 
+  // TODO apparently there are unecessary escape characters
+
   //then map each element in the array to the Word component
   const wordCollection = wordAra.map((wrd, index) => (
     <Word
       wordContent={wrd}
       key={wrd + index}
-      alt={wrd}
+      alt={wrd.replace(/[.,\/#!$%\^&\*;:{}=\-_`~()]/g,"")}
       onClick={activateWord} />
   ))
 
@@ -40,7 +42,7 @@ function App() {
   function activateWord(elemAlt) {
 
     //check that x seconds have passed so the server doesn't crash
-    if (Date.now() >= (pressTime + 5000)) {
+    if (Date.now() >= (pressTime + 500)) {
       setSelectedWord(elemAlt);
       console.log(selectedWord);
       pressTime = Date.now();

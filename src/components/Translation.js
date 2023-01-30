@@ -9,11 +9,20 @@ export default function Translation(props) {
 
     return (
         <div>
-            <div className="translation-words gimme-outline">
-                abc
+            <div className="translation-meaning gimme-outline">
+                {tAra[0] ? tAra[0].meaning : "meaning"}
             </div>
-            <div className="gimme-outline translation-example arab-text">
-                def
+            <div className="gimme-outline translation-tense arab-text">
+                {tAra[0] ? tAra[0].tense : "tense"}
+            </div>
+
+            <div className="gimme-outline grammar-box">
+                <div className="gimme-outline grammar-box-elem">
+                    {tAra[0] ? tAra[0].root : "root"}
+                </div>
+                <div className="gimme-outline grammar-box-elem">
+                    {tAra[0] ? tAra[0].verbForm : "verbForm"}
+                </div>
             </div>
         </div>
     )

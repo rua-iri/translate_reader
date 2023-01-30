@@ -39,14 +39,24 @@ export default function Definition(props) {
     }, [props]);
 
 
+    // TODO add an onclick event to the definition arrows so that they will cycle to the next meaning
+    
+    // TODO give the definition arrows conditional rendering so that they only show if there is a next/previous definition
+
 
     return (
         <div className="top-banner gimme-outline">
+            <div className="gimme-outline definition-arrow">
+                {">"}
+            </div>
             <div className="selected-word arab-text gimme-outline">
-                {upperText}
+                {possibleMeanings[0] ? possibleMeanings[0].phoneticSpell : ""}
             </div>
             <div className="translations gimme-outline">
                 <Translation allTranslations={possibleMeanings} />
+            </div>
+            <div className="gimme-outline definition-arrow">
+                {"<"}
             </div>
         </div>
     )

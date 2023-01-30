@@ -15,7 +15,7 @@
 }
 
 .selected-word {
-  width: auto;
+  width: 12%;
   font-size: 3rem;
   padding: 1rem 3rem;
   line-height: 5rem;
@@ -27,18 +27,23 @@
   font-size: 2rem;
 }
 
-.translation-words {
-  padding: 1rem;
-  line-height: 200%;
-  height: 10vh;
-  overflow: scroll;
+.definition-arrow {
+  width: 5%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 3rem;
+
 }
 
-.translation-example {
+.translation-meaning {
   padding: 1rem;
-  line-height: 200%;
-  height: 20vh;
-  overflow: scroll;
+  height: 10vh;
+}
+
+.translation-tense {
+  padding: 1rem;
+  height: 10vh;
 }
 
 .wordbox {
@@ -52,6 +57,15 @@
 .word-elem {
   margin: 0.5rem;
   align-items: center;
+}
+
+.grammar-box {
+  display: flex;
+  width: 100%;
+}
+
+.grammar-box-elem {
+  width: 100%;
 }
 
 .arab-text {
