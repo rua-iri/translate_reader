@@ -2,27 +2,20 @@ import React from 'react';
 import './App.css';
 import Word from "./components/Word.js"
 import Definition from './components/Definition';
-
-//TODO Nodejs to query the api
+import InputArea from './components/InputArea';
 
 
 function App() {
 
 
   const [selectedWord, setSelectedWord] = React.useState("");
+  const [wordString, setWordString] = React.useState("");
 
   let pressTime = Date.now();
 
-  //TODO find a way to make the text change, maybe via a separate input page...
 
   //split each word into the string into an array
-  const wordString = `يتم فهرست بتطويق قد, يتم كل تطوير وكسبت. في بقصف مئات السيء ذات. أخذ في عرفها العناد, فكان سنغافورة ويكيبيديا، كلا بـ, جهة فاتّبع الربيع، ٣٠. تعداد ضمنها الستار أما عن, بـ يذكر سياسة تزامناً بها.
-
-  بحشد المبرمة ان وصل. يتم بسبب المدن العناد بل, عدم في تشكيل الأراضي, أي تحت اكتوبر وحرمان وتنامت. دفّة واندونيسيا، جُل كل, دول أن خيار وصافرات. مكن ثم لإعادة وبحلول, أم والتي بمباركة بحق. قد حالية السبب والحزب حول.
-  
-  ولم إنطلاق استعملت اقتصادية بـ. عل حادثة التبرعات بالمطالبة جعل, عُقر سكان والفلبين بل أضف. هو عدم والقرى الخاطفة, يتم جمعت وحلفاؤها إذ. كان قد دخول تحرير مسارح. أي مكن هناك الوراء الطرفين, يكن هامش الشرقي هو.`;
-
-  const wordAra = wordString.split(" ");
+  const wordAra = wordString.replace("\n", " ").split(" ");
 
 
   // TODO apparently there are unecessary escape characters
@@ -32,20 +25,35 @@ function App() {
     <Word
       wordContent={wrd}
       key={wrd + index}
-      alt={wrd.replace(/[.,\/#!$%\^&\*;:{}=\-_`~()]/g,"")}
-      onClick={activateWord} />
+      alt={wrd.replace(/[.,،\/#!$%\^&\*;:{}=\-_`~()"]/g, "")}
+      onClick={activateWord}
+      isSelected={selectedWord == wrd.replace(/[.,،\/#!$%\^&\*;:{}=\-_`~()"]/g, "")} />
   ))
 
+  const resetButton = <button className="source-button" onClick={resetText}>Reset</button>;
+
+
+  function resetText() {
+    setWordString("");
+  }
+
+  // function to change the text according to what is
+  // typed/copy and pasted into the textarea
+  function submitText() {
+    const inputText = document.getElementById("input-textarea").value;
+    setWordString(inputText);
+  }
 
 
   //function to be executed when a word is clicked
   function activateWord(elemAlt) {
 
-    //check that x seconds have passed so the server doesn't crash
-    if (Date.now() >= (pressTime + 500)) {
+    //check that 500 seconds have passed and the word clicked is not
+    // the same so the server isn't spammed
+    if (Date.now() >= (pressTime + 500) && elemAlt != selectedWord) {
       setSelectedWord(elemAlt);
-      console.log(selectedWord);
       pressTime = Date.now();
+      console.log(elemAlt);
     }
   }
 
@@ -53,13 +61,13 @@ function App() {
   return (
     <div className="App gimme-outline">
       <div className='focus-word'>
-        <Definition
-          selectedWord={selectedWord}
-        />
+        <Definition selectedWord={selectedWord} />
       </div>
       <div className="wordbox arab-text gimme-outline">
         {wordCollection}
       </div>
+
+      {wordString ? resetButton : <InputArea onClick={submitText} />}
     </div>
   );
 }

@@ -1,30 +1,31 @@
 .App {
   text-align: center;
-  margin: 10px;
+  margin: 1.5rem;
 }
 
-.focus-word {
-  min-height: 10rem;
-}
 
 .top-banner {
   display: flex;
-  border-radius: 1rem;
-  margin-bottom: 1rem;
+  border-radius: rem;
+  margin-bottom: 1%;
   flex-direction: row-reverse;
+  width: 100%;
+  background-color: white;
 }
 
 .selected-word {
-  width: 12%;
-  font-size: 3rem;
-  padding: 1rem 3rem;
-  line-height: 5rem;
+  padding-left: 0.5rem;
+  padding-right: 0.5rem;
+  font-size: 3.5vw;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .translations {
   width: 100%;
   direction: ltr;
-  font-size: 2rem;
+  font-size: 2.5vw;
 }
 
 .definition-arrow {
@@ -32,36 +33,34 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 3rem;
-
+  font-size: 3.5vw;
 }
 
 .translation-meaning {
   padding: 1rem;
-  height: 10vh;
 }
 
 .translation-tense {
   padding: 1rem;
-  height: 10vh;
 }
 
 .wordbox {
-  font-size: 2rem;
-  max-width: 100vw;
+  font-size: 2.5vw;
+  width: 100%;
   text-align: right;
-  overflow-wrap: break-word;
-  padding: 1rem;
+  display: inline-flex;
+  justify-content: flex-start;
+  flex-wrap: wrap;
 }
 
 .word-elem {
-  margin: 0.5rem;
-  align-items: center;
+  margin: 0.2rem 0 0.2rem 0;
 }
 
 .grammar-box {
   display: flex;
   width: 100%;
+  height: 3.5vw;
 }
 
 .grammar-box-elem {
@@ -76,3 +75,77 @@
 .gimme-outline {
   outline: 1px solid red;
 }
+
+.highlight-text {
+  font-weight: bold;
+  color: red;
+}
+
+.source-textarea {
+  width: 99%;
+  font-size: 2.5vw;
+}
+
+.textarea-label {
+  font-size: 2.5vw;
+}
+
+.source-button {
+  margin: 1vw;
+  font-size: 2.5vw;
+  padding: 1vw;
+}
+
+
+
+/* Extra small devices (phones, 600px and down) */
+@media only screen and (max-width: 600px) {}
+
+/* Small devices (portrait tablets and large phones, 600px and up) */
+@media only screen and (min-width: 600px) {}
+
+
+
+/* Medium devices (landscape tablets, 768px and up) */
+@media only screen and (max-width: 768px) {
+
+  .top-banner {
+    top: 0;
+    width: 25rem;
+    position: fixed;
+  }
+
+  .selected-word {
+    font-size: 4.5vw;
+  }
+
+  .wordbox {
+    font-size: 7.5vw;
+    padding-top: 55%;
+  }
+
+  .translations {
+    font-size: 5.5vw;
+  }
+
+  .source-button {
+    font-size: 4.5vw;
+  }
+
+  .grammar-box {
+    height: 8.5vw;
+  }
+
+  .definition-arrow {
+    width: 15%;
+  }
+
+}
+
+
+
+/* Large devices (laptops/desktops, 992px and up) */
+@media only screen and (min-width: 992px) {}
+
+/* Extra large devices (large laptops and desktops, 1200px and up) */
+@media only screen and (min-width: 1200px) {}
