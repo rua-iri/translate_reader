@@ -20,7 +20,6 @@ export default function Definition(props) {
     }
 
 
-
     React.useEffect(() => {
 
         // reset resultCounter every time that new props are passed
@@ -32,10 +31,6 @@ export default function Definition(props) {
             makeAPICall(apiUrl);
         }
     }, [props]);
-
-
-    // TODO make prevResult and nextResult callable by using the 
-    // left and right arrow keys
     
 
     // function to cycle to previous method
@@ -52,9 +47,10 @@ export default function Definition(props) {
         }
     }
 
+  // TODO fill selected word box even if no results are returned
 
     return (
-        <div className="top-banner gimme-outline">
+        <div className="top-banner gimme-outline" >
             {resultCounter ? <Arrow arrowShape=">" onClick={prevResult} /> : ""}
             
             <div className="selected-word arab-text gimme-outline">

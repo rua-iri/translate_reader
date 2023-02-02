@@ -12,11 +12,13 @@ export default function Translation(props) {
 
     return (
         <div>
-            <div className="translation-meaning gimme-outline">
-                {tAra[resCounter] ? tAra[resCounter].meaning : "meaning"}
-            </div>
-            <div className="gimme-outline translation-tense">
-                {tAra[resCounter] ? tAra[resCounter].tense : "tense"}
+            <div className="translation-box">
+                <div className="translation-meaning gimme-outline">
+                    {tAra[resCounter] ? tAra[resCounter].meaning : "meaning"}
+                </div>
+                <div className="gimme-outline translation-tense">
+                    {tAra[resCounter] ? tAra[resCounter].tense : "tense"}
+                </div>
             </div>
 
             <div className="gimme-outline grammar-box">
