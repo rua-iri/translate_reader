@@ -37,6 +37,7 @@ function App() {
   // function to set the text to an empty string
   function resetText() {
     setWordString("");
+    setSelectedWord("Selected Word");
     localStorage.removeItem("text-input");
   }
 
@@ -61,6 +62,7 @@ function App() {
     }
   }
 
+  const wordBox = <div className="wordbox-box"><div className="wordbox arab-text gimme-outline">{wordCollection}</div></div>;
 
 
   // TODO text is hard to read as current formatting removes paragraph structure
@@ -71,10 +73,7 @@ function App() {
       <div className='focus-word'>
         <Definition selectedWord={selectedWord} />
       </div>
-      <div className="wordbox arab-text gimme-outline">
-        {wordCollection}
-      </div>
-
+      {wordString ? wordBox : ""}
       {wordString ? resetButton : <InputArea onClick={submitText} />}
     </div>
   );

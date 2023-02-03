@@ -48,7 +48,10 @@ export default function Definition(props) {
     }
 
     const wordSelected = possibleMeanings[resultCounter] ? possibleMeanings[resultCounter].phoneticSpell : props.selectedWord;
+
+    // generate link to reverso but only show it if a user has selected a word
     const exampleLink = "https://context.reverso.net/translation/arabic-english/" + wordSelected;
+    const exampleAnchor = <a className="word-examples" href={exampleLink} target="_blank" rel="noreferrer">Examples</a>;
 
     return (
         <div className="top-banner gimme-outline" >
@@ -56,9 +59,7 @@ export default function Definition(props) {
 
             <div className="selected-word arab-text gimme-outline">
                 {wordSelected}
-                <a className="word-examples gimme-outline" href={exampleLink} target="_blank">
-                    Examples
-                </a>
+                {wordSelected!=="Selected Word" ? exampleAnchor : ""}
             </div>
             <div className="translations gimme-outline">
                 <Translation allTranslations={possibleMeanings} resCounter={resultCounter} />
