@@ -11,8 +11,8 @@ import InputArea from './components/InputArea';
 function App() {
 
 
-  const [selectedWord, setSelectedWord] = React.useState("");
-  const [wordString, setWordString] = React.useState("");
+  const [selectedWord, setSelectedWord] = React.useState("Selected Word");
+  const [wordString, setWordString] = React.useState(localStorage.getItem("text-input") ? localStorage.getItem("text-input") : "");
 
   let pressTime = Date.now();
 
@@ -37,6 +37,7 @@ function App() {
   // function to set the text to an empty string
   function resetText() {
     setWordString("");
+    localStorage.removeItem("text-input");
   }
 
   // function to change the text according to what is
@@ -44,6 +45,7 @@ function App() {
   function submitText() {
     const inputText = document.getElementById("input-textarea").value;
     setWordString(inputText);
+    localStorage.setItem('text-input', inputText);
   }
 
 
@@ -59,7 +61,7 @@ function App() {
     }
   }
 
-  // TODO maybe save the text between refreshes using cookies or something
+
 
   // TODO text is hard to read as current formatting removes paragraph structure
   // this should be fixed

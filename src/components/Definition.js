@@ -31,7 +31,7 @@ export default function Definition(props) {
             makeAPICall(apiUrl);
         }
     }, [props]);
-    
+
 
     // function to cycle to previous method
     function prevResult() {
@@ -47,20 +47,24 @@ export default function Definition(props) {
         }
     }
 
-  // TODO fill selected word box even if no results are returned
+    const wordSelected = possibleMeanings[resultCounter] ? possibleMeanings[resultCounter].phoneticSpell : props.selectedWord;
+    const exampleLink = "https://context.reverso.net/translation/arabic-english/" + wordSelected;
 
     return (
         <div className="top-banner gimme-outline" >
             {resultCounter ? <Arrow arrowShape=">" onClick={prevResult} /> : ""}
-            
+
             <div className="selected-word arab-text gimme-outline">
-                {possibleMeanings[resultCounter] ? possibleMeanings[resultCounter].phoneticSpell : "Selected Word"}
+                {wordSelected}
+                <a className="word-examples gimme-outline" href={exampleLink} target="_blank">
+                    Examples
+                </a>
             </div>
             <div className="translations gimme-outline">
                 <Translation allTranslations={possibleMeanings} resCounter={resultCounter} />
             </div>
 
-            {(resultCounter<possibleMeanings.length-1) ? <Arrow arrowShape="<" onClick={nextResult} /> : ""}
+            {(resultCounter < possibleMeanings.length - 1) ? <Arrow arrowShape="<" onClick={nextResult} /> : ""}
         </div>
     )
 }

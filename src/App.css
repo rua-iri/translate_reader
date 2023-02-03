@@ -1,7 +1,19 @@
+body {
+  /* background-image: url("https://www.toptal.com/designers/subtlepatterns/uploads/more-leaves.png");
+  background-image: url("https://www.toptal.com/designers/subtlepatterns/uploads/more-leaves-on-green.png");
+  background-image: url("https://www.toptal.com/designers/subtlepatterns/uploads/morocco.png"); */
+
+  background-image: linear-gradient(rgba(51, 152, 192, 0.342), rgba(51, 152, 192, 0.342)), url("https://www.toptal.com/designers/subtlepatterns/uploads/morocco.png");
+
+}
+
+
 .App {
   text-align: center;
   margin: 7vw;
   margin-top: 1vw;
+  background-color: white;
+  border-radius: 2rem;
 }
 
 .focus-word {
@@ -10,12 +22,14 @@
 
 .top-banner {
   display: flex;
-  border-radius: 0rem 0rem 2rem 2rem;
+  border-radius: 2rem;
   margin-bottom: 1%;
   flex-direction: row-reverse;
   width: 100%;
-  background-color: white;
+  background-color: rgb(28, 28, 32);
+  color: rgba(255, 255, 255, 0.815);
 }
+
 
 .selected-word {
   padding-left: 0.5rem;
@@ -24,6 +38,14 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  flex-direction: column;
+}
+
+.word-examples {
+  margin-top: 1vw;
+  margin-bottom: -4vw;
+  font-size: 2.5vw;
+  color: rgba(171, 174, 223, 0.815);
 }
 
 .translations {
@@ -83,12 +105,16 @@
 }
 
 .gimme-outline {
-  outline: 1px solid red;
+  /* outline: 1px solid red; */
+  outline: 1px solid rgba(246, 248, 252, 0.171);
 }
 
 .highlight-text {
   font-weight: bold;
-  color: red;
+  color: rgb(51, 152, 192);
+  /* background-color: rgba(51, 152, 192, 0.342); */
+  color: rgb(28, 28, 32);
+  /* color: rgba(255, 255, 255, 0.815); */
 }
 
 .source-textarea {
