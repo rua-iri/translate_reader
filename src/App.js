@@ -11,6 +11,23 @@ import InputArea from './components/InputArea';
 function App() {
 
 
+    // TODO add a pronunciation feature to allow users to hear the new words
+    // This should improve learning
+    // use the text to speech api from reverso
+    // which can be found at
+    // https://voice.reverso.net/RestPronunciation.svc/v1/output=json/GetVoiceStream/voiceName=Salma22k?inputText=2LPZjtiq2Y/ZiNin2LXZkNmE
+    // text MUST be encoded in base64 in order for it to be processed
+
+    // TODO allow users to change the voice of the pronunciation tool
+    // there are three options available from reverso
+    // store this choice in localstorage
+
+    // TODO allow users to select the percentage of words they are allowed
+    // to translate for a given article
+    // this should be stored in localstorage
+    // the number of words translated should be reset when the user resets the article
+
+
   const [selectedWord, setSelectedWord] = React.useState("Selected Word");
   const [wordString, setWordString] = React.useState(localStorage.getItem("text-input") ? localStorage.getItem("text-input") : "");
 

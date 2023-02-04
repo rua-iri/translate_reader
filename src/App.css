@@ -27,7 +27,7 @@ body {
   flex-direction: row-reverse;
   width: 100%;
   background-color: rgb(28, 28, 32);
-  color: rgba(255, 255, 255, 0.815);
+  color: rgb(255, 255, 255);
 }
 
 
@@ -70,6 +70,8 @@ body {
 }
 
 .translation-meaning {
+  padding-left: 1vw;
+  padding-right: 1vw;
   flex-grow: 1;
 }
 
@@ -111,13 +113,15 @@ body {
 }
 
 .gimme-outline {
-  outline: 1px solid rgba(246, 248, 252, 0.171);
+  outline: 0.1vw solid rgba(246, 248, 252, 0.171);
 }
 
 .highlight-text {
   font-weight: 800;
   color: rgb(28, 28, 32);
+  text-shadow: 0.2vw 0.2vw rgba(51, 152, 192, 0.342);
 }
+
 
 .source-textarea {
   height: 35vh;
@@ -128,8 +132,12 @@ body {
 }
 
 .source-button {
+  border: 3px solid black;
+  border-radius: 0.4em;
+  font-weight: 900;
   margin: 1vw;
   font-size: 2.5vw;
+  box-shadow: 0.1em 0.1em;
   padding: 2vw;
 }
 

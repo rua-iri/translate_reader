@@ -53,6 +53,7 @@ export default function Definition(props) {
     const exampleLink = "https://context.reverso.net/translation/arabic-english/" + wordSelected;
     const exampleAnchor = <a className="word-examples" href={exampleLink} target="_blank" rel="noreferrer">Examples</a>;
 
+    // TODO fix outline so that  it only appears on the inside of the  definition box
     return (
         <div className="top-banner gimme-outline" >
             {resultCounter ? <Arrow arrowShape=">" onClick={prevResult} /> : ""}

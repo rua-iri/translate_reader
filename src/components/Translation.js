@@ -14,7 +14,7 @@ export default function Translation(props) {
         <div>
             <div className="translation-box">
                 <div className="translation-meaning gimme-outline">
-                    {tAra[resCounter] ? tAra[resCounter].meaning : "meaning"}
+                    {tAra[resCounter] ? tAra[resCounter].meaning.replaceAll(";", "/ ") : "meaning"}
                 </div>
                 <div className="gimme-outline translation-tense">
                     {tAra[resCounter] ? tAra[resCounter].tense : "tense"}
