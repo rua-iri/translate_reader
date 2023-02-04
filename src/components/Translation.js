@@ -1,4 +1,5 @@
 import React from "react";
+import AudioElem from "./AudioElem";
 
 export default function Translation(props) {
 
@@ -6,9 +7,11 @@ export default function Translation(props) {
     let resCounter = props.resCounter;
 
 
-
     // TODO maybe add a function to allow the user to look up words with the same root
     // maybe it could use Hans Wehr's dictionary...
+
+
+    // TODO style the audio so that it fits on mobile
 
     return (
         <div>
@@ -27,6 +30,9 @@ export default function Translation(props) {
                 </div>
                 <div className="gimme-outline grammar-box-elem">
                     {tAra[resCounter] ? tAra[resCounter].verbForm : "verbForm"}
+                </div>
+                <div className="gimmie-outline grammar-box-elem">
+                    <AudioElem phoneticWord={props.phoneticWord} />
                 </div>
             </div>
         </div>

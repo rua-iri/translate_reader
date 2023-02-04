@@ -63,7 +63,7 @@ export default function Definition(props) {
                 {wordSelected!=="Selected Word" ? exampleAnchor : ""}
             </div>
             <div className="translations gimme-outline">
-                <Translation allTranslations={possibleMeanings} resCounter={resultCounter} />
+                <Translation allTranslations={possibleMeanings} resCounter={resultCounter} phoneticWord={wordSelected} />
             </div>
 
             {(resultCounter < possibleMeanings.length - 1) ? <Arrow arrowShape="<" onClick={nextResult} /> : ""}

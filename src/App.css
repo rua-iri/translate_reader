@@ -107,6 +107,11 @@ body {
   width: 100%;
 }
 
+.audio-box {
+  width: 90%;
+  height: 90%;
+}
+
 .arab-text {
   direction: rtl;
   font-family: 'Vazirmatn', sans-serif;

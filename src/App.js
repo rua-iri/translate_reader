@@ -11,13 +11,11 @@ import InputArea from './components/InputArea';
 function App() {
 
 
-    // TODO add a pronunciation feature to allow users to hear the new words
-    // This should improve learning
-    // use the text to speech api from reverso
-    // which can be found at
-    // https://voice.reverso.net/RestPronunciation.svc/v1/output=json/GetVoiceStream/voiceName=Salma22k?inputText=2LPZjtiq2Y/ZiNin2LXZkNmE
-    // text MUST be encoded in base64 in order for it to be processed
+    // TODO add an options menu
+    // its components should probably be in a separate directory in the components
+    // maybe put an about sections there to explain the app
 
+    
     // TODO allow users to change the voice of the pronunciation tool
     // there are three options available from reverso
     // store this choice in localstorage
