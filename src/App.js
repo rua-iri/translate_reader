@@ -15,7 +15,7 @@ function App() {
     // its components should probably be in a separate directory in the components
     // maybe put an about sections there to explain the app
 
-    
+
     // TODO allow users to change the voice of the pronunciation tool
     // there are three options available from reverso
     // store this choice in localstorage
@@ -89,6 +89,7 @@ function App() {
         <Definition selectedWord={selectedWord} />
       </div>
       {wordString ? wordBox : ""}
+      <button className='source-button' id="options-button">Options</button>
       {wordString ? resetButton : <InputArea onClick={submitText} />}
     </div>
   );

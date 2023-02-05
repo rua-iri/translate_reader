@@ -1,13 +1,21 @@
 import React from "react";
+import rightArrow from "../assets/double-arrow-right-icon.svg";
+import leftArrow from "../assets/double-arrow-left-icon.svg";
 
 
 export default function Arrow(props) {
 
-    // TODO the arrows are still just angle brackets, it might be nice to style them more
+
+    let aro;
+    if(props.arrowShape==">") {
+        aro = rightArrow;
+    } else {
+        aro = leftArrow;
+    }
 
     return (
         <div className="gimme-outline definition-arrow" onClick={props.onClick}>
-            {props.arrowShape}
+            <img src={aro}  alt="" />
         </div>
     )
 }

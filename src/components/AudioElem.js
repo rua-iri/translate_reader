@@ -10,10 +10,19 @@ export default function AudioElem(props) {
         audioLink = "https://voice.reverso.net/RestPronunciation.svc/v1/output=json/GetVoiceStream/voiceName=Salma22k?inputText=" + Buffer.from(props.phoneticWord).toString("base64");
     }
 
+    function audioClick() {
+        document.getElementById("audio-player").play()
+    }
+
 
     return (
-        <audio className="audio-box" controls
-            src={audioLink}>
-        </audio>
+        <span className="audio-box">
+            <audio id="audio-player"
+                src={audioLink}>
+            </audio>
+            <button className="audio-button" onClick={audioClick}>
+                🔊
+            </button>
+        </span>
     )
 }
