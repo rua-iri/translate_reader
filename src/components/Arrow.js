@@ -7,7 +7,7 @@ export default function Arrow(props) {
 
 
     let aro;
-    if(props.arrowShape==">") {
+    if (props.arrowShape === ">") {
         aro = rightArrow;
     } else {
         aro = leftArrow;
@@ -15,7 +15,7 @@ export default function Arrow(props) {
 
     return (
         <div className="gimme-outline definition-arrow" onClick={props.onClick}>
-            <img src={aro}  alt="" />
+            <img src={aro} alt="arrow button" />
         </div>
     )
 }

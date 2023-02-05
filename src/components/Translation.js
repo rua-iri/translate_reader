@@ -32,7 +32,7 @@ export default function Translation(props) {
                     {tAra[resCounter] ? tAra[resCounter].verbForm : "verbForm"}
                 </div>
                 <div className="gimmie-outline grammar-box-elem">
-                    <AudioElem phoneticWord={props.phoneticWord} />
+                    <AudioElem phoneticWord={props.phoneticWord} speakerName="Salma" />
                 </div>
             </div>
         </div>

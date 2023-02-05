@@ -3,6 +3,7 @@ import './App.css';
 import Word from "./components/Word.js"
 import Definition from './components/Definition';
 import InputArea from './components/InputArea';
+import OptionsMenu from './components/OptionsMenu';
 
 
 // TODO change default things from the manifest favicon etc
@@ -15,6 +16,8 @@ function App() {
     // its components should probably be in a separate directory in the components
     // maybe put an about sections there to explain the app
 
+    // TODO options menu should appear if user has never 
+    // visited the site or set their preferences before
 
     // TODO allow users to change the voice of the pronunciation tool
     // there are three options available from reverso
@@ -91,6 +94,7 @@ function App() {
       {wordString ? wordBox : ""}
       <button className='source-button' id="options-button">Options</button>
       {wordString ? resetButton : <InputArea onClick={submitText} />}
+      <OptionsMenu />
     </div>
   );
 }
