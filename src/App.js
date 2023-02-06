@@ -12,25 +12,35 @@ import OptionsMenu from './components/OptionsMenu';
 function App() {
 
 
-    // TODO add an options menu
-    // its components should probably be in a separate directory in the components
-    // maybe put an about sections there to explain the app
+  // TODO add an options menu
+  // its components should probably be in a separate directory in the components
+  // maybe put an about sections there to explain the app
 
-    // TODO options menu should appear if user has never 
-    // visited the site or set their preferences before
+  // TODO options menu should appear if user has never 
+  // visited the site or set their preferences before
 
-    // TODO allow users to change the voice of the pronunciation tool
-    // there are three options available from reverso
-    // store this choice in localstorage
+  // TODO allow users to change the voice of the pronunciation tool
+  // there are three options available from reverso
+  // store this choice in localstorage
 
-    // TODO allow users to select the percentage of words they are allowed
-    // to translate for a given article
-    // this should be stored in localstorage
-    // the number of words translated should be reset when the user resets the article
+  // TODO allow users to select the percentage of words they are allowed
+  // to translate for a given article
+  // this should be stored in localstorage
+  // the number of words translated should be reset when the user resets the article
 
 
   const [selectedWord, setSelectedWord] = React.useState("Selected Word");
   const [wordString, setWordString] = React.useState(localStorage.getItem("text-input") ? localStorage.getItem("text-input") : "");
+  const [showOptions, setShowOptions] = React.useState(false);
+
+
+  // set default voice and percentage if they have not been already set by user
+  if(!localStorage.getItem("selectedVoice")) {
+    localStorage.setItem("selectedVoice", "Leila");
+  }
+  if(!localStorage.getItem("wordPercentage")) {
+    localStorage.setItem("wordPercentage", 20);
+  }
 
   let pressTime = Date.now();
 
@@ -80,21 +90,43 @@ function App() {
     }
   }
 
+  function showSettings() {
+    setShowOptions(true);
+  }
+
+  function hideSettings() {
+    setShowOptions(false);
+  }
+
   const wordBox = <div className="wordbox-box"><div className="wordbox arab-text gimme-outline">{wordCollection}</div></div>;
 
 
   // TODO text is hard to read as current formatting removes paragraph structure
   // this should be fixed
 
+  // TODO the options and reset buttons are not inline when the word-box is empty
+
+
   return (
     <div className="App gimme-outline">
+
       <div className='focus-word'>
         <Definition selectedWord={selectedWord} />
       </div>
+
       {wordString ? wordBox : ""}
-      <button className='source-button' id="options-button">Options</button>
-      {wordString ? resetButton : <InputArea onClick={submitText} />}
-      <OptionsMenu />
+
+      {wordString ? "" : <InputArea onClick={submitText} />}
+
+
+      <span onClick={showSettings}>
+        <button className='source-button' id="options-button">Options</button>
+      </span>
+
+      {wordString ? resetButton : ""}
+
+      <OptionsMenu showMenu={showOptions} hideMenu={hideSettings} />
+
     </div>
   );
 }

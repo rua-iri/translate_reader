@@ -15,16 +15,16 @@ export default function About() {
             </div>
 
             <div>
-                It was built by ME. Rory McGuigan and was inspired by the kind of tool I always wished I had while studying at university.
+                It was built by me, Rory McGuigan and was inspired by the kind of tool I always wished I had while studying at university.
             </div>
 
             <div>
                 The full source code can be found in my&nbsp;
-                <a href="https://github.com/rua-iri/translate_reader">
+                <a href="https://github.com/rua-iri/translate_reader" target="_blank" rel="noreferrer">
                     GitHub repository.
                 </a>
             </div>
-            
+
         </div>
     )
 }
