@@ -5,8 +5,6 @@ import AudioElem from "../AudioElem";
 
 export default function Voices() {
 
-    // TODO select the voice from localStorage if the user has previously selected one
-
     const [selectedVoice, setSelectedVoice] = React.useState(localStorage.getItem("selectedVoice"));
 
     function changeSelectedVoice(event) {

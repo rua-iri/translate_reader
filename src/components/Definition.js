@@ -30,6 +30,7 @@ export default function Definition(props) {
             const apiUrl = "https://rua-iri.com/api/word?q=" + props.selectedWord;
             makeAPICall(apiUrl);
         }
+
     }, [props]);
 
 
@@ -60,7 +61,7 @@ export default function Definition(props) {
 
             <div className="selected-word arab-text gimme-outline">
                 {wordSelected}
-                {wordSelected!=="Selected Word" ? exampleAnchor : ""}
+                {wordSelected !== "Selected Word" ? exampleAnchor : ""}
             </div>
             <div className="translations gimme-outline">
                 <Translation allTranslations={possibleMeanings} resCounter={resultCounter} phoneticWord={wordSelected} />

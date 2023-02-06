@@ -230,7 +230,7 @@ body {
 
 .menu-item h3 {
   margin: 0;
-  margin-bottom: 4vh;
+  margin-bottom: 2vh;
 }
 
 .menu-item .audio-button {
@@ -254,37 +254,6 @@ body {
   height: 5vh;
   width: 5vw;
   margin: 3vh;
-}
-
-#range-slider {
-  -webkit-appearance: none;
-  margin: 2vh 0;
-  width: 80%;
-  height: 15px;
-  border-radius: 5px;  
-  background: rgba(75, 108, 216, 0.651);
-  outline: none;
-  opacity: 0.7;
-  -webkit-transition: .2s;
-  transition: opacity .2s;
-}
-
-#range-slider::-webkit-slider-thumb {
-  -webkit-appearance: none;
-  appearance: none;
-  width: 2.5vw;
-  height: 2.5vw;
-  border-radius: 50%; 
-  background: rgb(14, 61, 122);
-  cursor: pointer;
-}
-
-#range-slider::-moz-range-thumb {
-  width: 2.5vw;
-  height: 2.5vw;
-  border-radius: 50%;
-  background: rgb(2, 54, 167);
-  cursor: pointer;
 }
 
 .voice-box {

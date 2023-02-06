@@ -11,7 +11,6 @@ export default function AudioElem(props) {
         audioLink = "https://voice.reverso.net/RestPronunciation.svc/v1/output=json/GetVoiceStream/voiceName=" + props.speakerName + "22k?inputText=" + word64;
     }
 
-    // " + props.speakerName + "
 
 
     function audioClick() {

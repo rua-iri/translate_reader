@@ -12,34 +12,15 @@ import OptionsMenu from './components/OptionsMenu';
 function App() {
 
 
-  // TODO add an options menu
-  // its components should probably be in a separate directory in the components
-  // maybe put an about sections there to explain the app
-
-  // TODO options menu should appear if user has never 
-  // visited the site or set their preferences before
-
-  // TODO allow users to change the voice of the pronunciation tool
-  // there are three options available from reverso
-  // store this choice in localstorage
-
-  // TODO allow users to select the percentage of words they are allowed
-  // to translate for a given article
-  // this should be stored in localstorage
-  // the number of words translated should be reset when the user resets the article
-
 
   const [selectedWord, setSelectedWord] = React.useState("Selected Word");
   const [wordString, setWordString] = React.useState(localStorage.getItem("text-input") ? localStorage.getItem("text-input") : "");
   const [showOptions, setShowOptions] = React.useState(false);
 
 
-  // set default voice and percentage if they have not been already set by user
+  // set default voice if it has not been already set by user
   if(!localStorage.getItem("selectedVoice")) {
     localStorage.setItem("selectedVoice", "Leila");
-  }
-  if(!localStorage.getItem("wordPercentage")) {
-    localStorage.setItem("wordPercentage", 20);
   }
 
   let pressTime = Date.now();
