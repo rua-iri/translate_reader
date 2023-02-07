@@ -19,7 +19,7 @@ function App() {
 
 
   // set default voice if it has not been already set by user
-  if(!localStorage.getItem("selectedVoice")) {
+  if (!localStorage.getItem("selectedVoice")) {
     localStorage.setItem("selectedVoice", "Leila");
   }
 
