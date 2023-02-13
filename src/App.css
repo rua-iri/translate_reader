@@ -88,6 +88,12 @@ body {
   align-items: center;
   justify-content: center;
   font-size: 3.5vw;
+  user-select: none;
+}
+
+.root-link {
+  text-decoration: unset;
+  color: rgba(171, 174, 223, 0.815);
 }
 
 .definition-arrow img {

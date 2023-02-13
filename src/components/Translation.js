@@ -6,9 +6,17 @@ export default function Translation(props) {
     let tAra = props.allTranslations;
     let resCounter = props.resCounter;
 
+    let rootElem;
 
-    // TODO maybe add a function to allow the user to look up words with the same root
-    // maybe it could use Hans Wehr's dictionary...
+    // TODO maybe add on hover so that users know what happens if they click the root link
+
+    // TODO perhaps link should be absolute and not relative
+
+    if(tAra[resCounter]) {
+        rootElem = <a className="root-link" href={"https://rua-iri.github.io/rootreference?q=" + tAra[resCounter].root}>{tAra[resCounter].root}</a>
+    } else {
+        rootElem = "";
+    }
 
 
     // TODO style the audio so that it fits on mobile
@@ -26,7 +34,7 @@ export default function Translation(props) {
 
             <div className="gimme-outline grammar-box">
                 <div className="gimme-outline grammar-box-elem arab-text">
-                    {tAra[resCounter] ? tAra[resCounter].root : "root"}
+                    {rootElem}
                 </div>
                 <div className="gimme-outline grammar-box-elem">
                     {tAra[resCounter] ? tAra[resCounter].verbForm : "verbForm"}
