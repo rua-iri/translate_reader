@@ -27,7 +27,7 @@ export default function Definition(props) {
 
         if (props.selectedWord) {
             // check the api for a definition
-            const apiUrl = "https://rua-iri.com/api/word?q=" + props.selectedWord;
+            const apiUrl = "https://q4l3xqyo3d.execute-api.us-east-1.amazonaws.com/Prod/analyse?word=" + props.selectedWord;
             makeAPICall(apiUrl);
         }
 
