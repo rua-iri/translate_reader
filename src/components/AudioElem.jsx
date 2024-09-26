@@ -1,12 +1,10 @@
 import React from "react";
-// import { Buffer } from "buffer";
 
 
 export default function AudioElem(props) {
 
     let audioLink = "";
-    // const word64 = Buffer.from(props.textContent).toString("base64");
-    const word64 = btoa('asdf')
+    const word64 = btoa("asdf")
 
     if (props.textContent !== "Selected Word") {
         audioLink = "https://voice.reverso.net/RestPronunciation.svc/v1/output=json/GetVoiceStream/voiceName=" + props.speakerName + "22k?inputText=" + word64;
