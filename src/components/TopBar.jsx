@@ -1,15 +1,16 @@
 import React from "react";
 import WordDataContainer from "./WordDataContainer";
 import Arrow from "./Arrow";
+import { fetchWordMeanings } from "/utils/fetcher";
 
-export default function TopBar(props) {
+export default function TopBar({ selectedWord }) {
   const [allMeanings, setAllMeanings] = React.useState([]);
   const [resultCounter, setResultCounter] = React.useState(0);
 
   const lookupWord = async () => {
     try {
-      console.log("selectedWord: ", selectedWord)
-      // const meanings = 
+      console.log("selectedWord: ", selectedWord);
+      setAllMeanings(await fetchWordMeanings(selectedWord));
     } catch (e) {
       console.log(e);
       alert("Error: Something Went Wrong");
@@ -18,12 +19,10 @@ export default function TopBar(props) {
 
   React.useEffect(() => {
     setResultCounter(0);
-
-    // check the api for a definition
-    if (props.selectedWord) {
+    if (selectedWord) {
       lookupWord();
     }
-  }, [props]);
+  }, [selectedWord]);
 
   function cycleResults(isNext) {
     if (isNext && resultCounter < allMeanings.length - 1) {
@@ -35,7 +34,7 @@ export default function TopBar(props) {
 
   const wordSelected = allMeanings[resultCounter]
     ? allMeanings[resultCounter].phoneticSpelling
-    : props.selectedWord;
+    : selectedWord;
 
   const examplesLink =
     "https://context.reverso.net/translation/arabic-english/" + wordSelected;
