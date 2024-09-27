@@ -7,7 +7,6 @@ import OptionsMenu from "./components/OptionsMenu";
 import CustomButton from "./components/CustomButton";
 
 function App() {
-
   const [selectedWord, setSelectedWord] = React.useState("Selected Word");
   const [showOptions, setShowOptions] = React.useState(false);
   const [wordString, setWordString] = React.useState(
