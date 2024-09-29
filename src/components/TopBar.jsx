@@ -13,7 +13,7 @@ export default function TopBar({ selectedWord }) {
       setAllMeanings(await fetchWordMeanings(selectedWord));
     } catch (e) {
       console.log(e);
-      alert("Error: Something Went Wrong");
+      alert("Error: API Call Failed");
     }
   };
 

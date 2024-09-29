@@ -17,7 +17,7 @@ export default function About() {
         The full source code can be found in my&nbsp;
         <a
           className="font-normal"
-          href="https://github.com/rua-iri/translate_reader-desktop"
+          href="https://github.com/rua-iri/translate_reader"
           target="_blank"
           rel="noreferrer"
         >

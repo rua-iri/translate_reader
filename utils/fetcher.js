@@ -1,4 +1,6 @@
-const BASE_API_URL = "http://192.168.3.35:3031";
+const BASE_API_URL = import.meta.env.VITE_BASE_API_URL;
+
+alert(BASE_API_URL)
 
 export async function fetchWordMeanings(word) {
   const response = await fetch(`${BASE_API_URL}/word/${word}`);
