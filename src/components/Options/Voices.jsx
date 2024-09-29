@@ -1,9 +1,26 @@
 import React from "react";
 import AudioPlayer from "../AudioPlayer";
 
-
-
 export default function Voices() {
+  const voiceList = [
+    {
+      nameEn: "Leila",
+      nameAr: "ليلَى",
+    },
+    {
+      nameEn: "Mehdi",
+      nameAr: "مَهدِي",
+    },
+    {
+      nameEn: "Nizar",
+      nameAr: "نزار",
+    },
+    {
+      nameEn: "Salma",
+      nameAr: "سلمَى",
+    },
+  ];
+
   const [selectedVoice, setSelectedVoice] = React.useState(
     localStorage.getItem("selectedVoice")
   );
@@ -13,72 +30,28 @@ export default function Voices() {
     localStorage.setItem("selectedVoice", event.target.value);
   }
 
-    return (
-
-        <div className="m-3 p-3 font-light">
-            <h3 className="font-normal mb-2">Available Voices</h3>
-            <div className="flex justify-center">
-                <div className="mx-4">
-                    Leila
-                    <AudioPlayer
-                        textContent={"مرحبا، اسمي ليلَى"}
-                        speakerName="Leila"
-                    />
-                    <input
-                        className="radio radio-info mx-2"
-                        type="radio"
-                        name="radio-group"
-                        value="Leila"
-                        onChange={changeSelectedVoice}
-                        defaultChecked={"Leila" === selectedVoice}
-                    />
-                </div>
-                <div className="mx-4">
-                    Mehdi
-                    <AudioPlayer
-                        textContent={"مرحبا، اسمي مَهدِي"}
-                        speakerName="Mehdi"
-                    />
-                    <input
-                        className="radio radio-info mx-2"
-                        type="radio"
-                        name="radio-group"
-                        value="Mehdi"
-                        onChange={changeSelectedVoice}
-                        defaultChecked={"Mehdi" === selectedVoice}
-                    />
-                </div>
-                <div className="mx-4">
-                    Nizar
-                    <AudioPlayer
-                        textContent={"مرحبا، اسمي نزار"}
-                        speakerName="Nizar"
-                    />
-                    <input
-                        className="radio radio-info mx-2"
-                        type="radio"
-                        name="radio-group"
-                        value="Nizar"
-                        onChange={changeSelectedVoice}
-                        defaultChecked={"Nizar" === selectedVoice}
-                    />
-                </div>
-                <div className="mx-4">
-                    Salma
-                    <AudioPlayer
-                        textContent={"مرحبا، اسمي سلمَى"}
-                        speakerName="Salma" />
-                    <input
-                        className="radio radio-info mx-2"
-                        type="radio"
-                        name="radio-group"
-                        value="Salma"
-                        onChange={changeSelectedVoice}
-                        defaultChecked={"Salma" === selectedVoice}
-                    />
-                </div>
-            </div>
-        </div>
-
-    )
+  return (
+    <div className="m-3 p-3 font-light">
+      <h3 className="font-normal mb-2">Available Voices</h3>
+      <div className="flex justify-center">
+        {voiceList.map((speaker) => (
+          <div className="mx-4">
+            {speaker.nameEn}
+            <AudioPlayer
+              textContent={`مرحبا، اسمي ${speaker.nameAr}`}
+              speakerName={speaker.nameEn}
+            />
+            <input
+              className="radio radio-info mx-2"
+              type="radio"
+              name="radio-group"
+              value={speaker.nameEn}
+              onChange={changeSelectedVoice}
+              defaultChecked={speaker.nameEn === selectedVoice}
+            />
+          </div>
+        ))}
+      </div>
+    </div>
+  );
 }

@@ -1,9 +1,9 @@
 import React from "react";
 import AudioPlayer from "./AudioPlayer";
 
-export default function WordDataContainer(props) {
-  let translationArray = props.allTranslations;
-  let resCounter = props.resCounter;
+export default function WordDataContainer({allTranslations, resCounter, textContent}) {
+  let translationArray = allTranslations;
+  let resultCounter = resCounter;
 
   // let rootElem;
 
@@ -17,13 +17,13 @@ export default function WordDataContainer(props) {
     <div>
       <div className="h-16 flex flex-col">
         <div className="px-1 grow-1">
-          {translationArray[resCounter]
-            ? translationArray[resCounter].meaning.replaceAll(";", "/ ")
+          {translationArray[resultCounter]
+            ? translationArray[resultCounter].meaning.replaceAll(";", "/ ")
             : "meaning"}
         </div>
         <div className="grow-1">
-          {translationArray[resCounter]
-            ? translationArray[resCounter].tense
+          {translationArray[resultCounter]
+            ? translationArray[resultCounter].tense
             : "tense"}
         </div>
       </div>
@@ -33,15 +33,15 @@ export default function WordDataContainer(props) {
                     {rootElem}
                 </div> */}
         <div className="w-full">
-          {translationArray[resCounter]
-            ? translationArray[resCounter].verbForm
+          {translationArray[resultCounter]
+            ? translationArray[resultCounter].verbForm
             : "verbForm"}
         </div>
         <div className="w-full">
-          {/* <AudioPlayer
-                textContent={props.textContent}
+          <AudioPlayer
+                textContent={textContent}
                 speakerName={localStorage.getItem("selectedVoice")}
-            /> */}
+            />
         </div>
       </div>
     </div>

@@ -1,23 +1,21 @@
 import { useRef } from "react";
+import { unicodeToBase64 } from "../../utils/textFormatter";
 
 export default function AudioPlayer({ textContent, speakerName }) {
   let audioLink = "";
-  const word64 = btoa("asdf");
+  const word64 = unicodeToBase64(textContent);
   const audioElem = useRef();
 
   if (textContent !== "Selected Word") {
-    let queryParams = new URLSearchParams({
-      voiceName: `${speakerName}22k`,
-      inputText: word64,
-    });
-
     audioLink =
       "https://voice.reverso.net/RestPronunciation.svc/v1/output=json/GetVoiceStream/" +
-      queryParams.toString();
+      `voiceName=${speakerName}22k` +
+      `?inputText=${word64}`;
   }
 
   function audioClick() {
-    audioElem.play();
+    console.log(audioLink);
+    audioElem.current.play();
   }
 
   return (
