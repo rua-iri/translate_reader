@@ -1,5 +1,5 @@
 import React from "react";
-import AudioElem from "./AudioElem";
+import AudioPlayer from "./AudioPlayer";
 
 export default function WordDataContainer(props) {
   let translationArray = props.allTranslations;
@@ -32,13 +32,15 @@ export default function WordDataContainer(props) {
         {/* <div className="w-full arab-text">
                     {rootElem}
                 </div> */}
-        <div className="w-full">
-          {translationArray[resCounter]
-            ? translationArray[resCounter].verbForm
-            : "verbForm"}
-        </div>
-        <div className="w-full">
-          {/* <AudioElem
+                <div className="w-full">
+                    {
+                        translationArray[resCounter]
+                            ? translationArray[resCounter].verbForm
+                            : "verbForm"
+                    }
+                </div>
+                <div className="w-full">
+                    {/* <AudioPlayer
                         textContent={props.textContent}
                         speakerName={localStorage.getItem("selectedVoice")}
                     /> */}
