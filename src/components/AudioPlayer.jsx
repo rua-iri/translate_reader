@@ -6,14 +6,14 @@ export default function AudioPlayer({ textContent, speakerName }) {
   const audioElem = useRef();
 
   if (textContent !== "Selected Word") {
-    let params = new URLSearchParams({
+    let queryParams = new URLSearchParams({
       voiceName: `${speakerName}22k`,
       inputText: word64,
     });
 
     audioLink =
       "https://voice.reverso.net/RestPronunciation.svc/v1/output=json/GetVoiceStream/" +
-      params.toString();
+      queryParams.toString();
   }
 
   function audioClick() {
@@ -23,7 +23,7 @@ export default function AudioPlayer({ textContent, speakerName }) {
   return (
     <span className="flex items-center content-center">
       <audio ref={audioElem} src={audioLink}></audio>
-      <button className="w-full h-full " onClick={audioClick}>
+      <button className="w-full h-full" onClick={audioClick}>
         🔊
       </button>
     </span>
