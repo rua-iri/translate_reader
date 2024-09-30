@@ -19,7 +19,7 @@ export default function TopBar({ selectedWord }) {
 
   React.useEffect(() => {
     setResultCounter(0);
-    if (selectedWord) {
+    if (selectedWord && selectedWord !== "Selected Word") {
       lookupWord();
     }
   }, [selectedWord]);
