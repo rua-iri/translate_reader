@@ -50,6 +50,7 @@ function App() {
   //then map each element in the array to the Word component
   const wordCollection = wordAra?.map((wrd, index) => {
     const wrdFormatted = wrd.replace(/[.,،/#!$%^&*;:{}=\-_`~()"؛]/g, "");
+
     return (
       <IndividualWord
         wordContent={wrd}

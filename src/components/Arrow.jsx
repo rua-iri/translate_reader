@@ -12,7 +12,7 @@ export default function Arrow(props) {
 
   return (
     <div
-      className="invert w-10 flex items-center justify-center select-none"
+      className="invert w-10 flex items-center justify-center select-none cursor-pointer"
       onClick={props.onClick}
     >
       <img className="w-3/4 mx-2" src={arrowSource} alt="arrow button" />
