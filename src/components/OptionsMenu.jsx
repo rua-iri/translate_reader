@@ -1,5 +1,4 @@
 import React from "react";
-import About from "./Options/About";
 import Voices from "./Options/Voices";
 import CustomButton from "./CustomButton";
 
@@ -16,8 +15,6 @@ export default function OptionsMenu(props) {
         <div className="rounded-t-lg p-2 text-white bg-slate-600 text-lg font-semibold">
           Arabic Reading Assistant
         </div>
-
-        <About />
 
         <Voices />
 

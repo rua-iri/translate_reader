@@ -15,7 +15,7 @@ export default function AudioPlayer({ textContent, speakerName }) {
 
   function audioClick() {
     console.log(audioLink);
-    audioElem.current.play();
+    audioLink && audioElem.current.play();
   }
 
   return (

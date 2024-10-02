@@ -4,23 +4,17 @@ export default function Word({ isSelected, onClick, alt, wordContent }) {
   let fontWeight = "";
 
   if (isSelected) {
-    fontWeight = "font-bold underline`";
-  } else {
-    fontWeight = "normal-text";
+    fontWeight = "font-bold";
   }
 
   if (!wordContent) {
     return <div className="h-3 basis-full"></div>;
   } else {
     return (
-      <>
-        <span dir="rtl" className="my-0.5" onClick={() => onClick(alt)}>
-          <span className={fontWeight}>
-            {wordContent}
-            &nbsp;
-          </span>
-        </span>
-      </>
+      <span dir="rtl" className={fontWeight} onClick={() => onClick(alt)}>
+        {wordContent}
+        &nbsp;
+      </span>
     );
   }
 }

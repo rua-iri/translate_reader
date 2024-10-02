@@ -1,16 +1,18 @@
-import React from "react";
+import { useState } from "react";
 
 import IndividualWord from "./components/IndividualWord";
 import TopBar from "./components/TopBar";
 import InputArea from "./components/InputArea";
 import OptionsMenu from "./components/OptionsMenu";
 import CustomButton from "./components/CustomButton";
+import TextContainer from "./components/TextContainer";
+import InfoModal from "./components/InfoModal";
 
-function App() {
-  const [selectedWord, setSelectedWord] = React.useState("Selected Word");
-  const [showOptions, setShowOptions] = React.useState(false);
-  const [wordString, setWordString] = React.useState(
-    localStorage.getItem("text-input") ? localStorage.getItem("text-input") : ""
+export default function App() {
+  const [selectedWord, setSelectedWord] = useState("Selected Word");
+  const [showOptions, setShowOptions] = useState(false);
+  const [wordString, setWordString] = useState(
+    localStorage.getItem("text-input")
   );
 
   // set default voice if it has not been already set by user
@@ -45,7 +47,6 @@ function App() {
 
   // split each word into the string into an array
   const wordAra = wordString?.replaceAll("\n", " ").split(" ");
-  // const wordAra = wordString?.replaceAll("\n", " ").split(" ");
 
   //then map each element in the array to the Word component
   const wordCollection = wordAra?.map((wrd, index) => {
@@ -62,45 +63,32 @@ function App() {
     );
   });
 
-  const resetButton = (
-    <CustomButton textContent={"Reset"} handleClick={resetText} />
-  );
-  const wordBox = (
-    <div className="m-4">
-      <div dir="rtl" className="w-full text-right inline-flex flex-wrap">
-        {wordCollection}
+  return (
+    <div className="App min-h-svh h-full bg-slate-200 p-3 relative">
+      <div className="text-center bg-white rounded-lg pb-3 mx-8 lg:mx-56">
+        <div className="block">
+          <TopBar selectedWord={selectedWord} />
+        </div>
+
+        {wordString ? (
+          <TextContainer textContent={wordCollection} />
+        ) : (
+          <InputArea handleSubmit={handleSubmit} />
+        )}
+
+        <CustomButton
+          textContent={"Options"}
+          handleClick={() => setShowOptions(true)}
+        />
+
+        {wordString && (
+          <CustomButton textContent={"Reset"} handleClick={resetText} />
+        )}
+
+        {showOptions && <OptionsMenu hideMenu={() => setShowOptions(false)} />}
       </div>
+
+      <InfoModal />
     </div>
   );
-
-  // TODO the options and reset buttons are not inline when the word-box is empty
-
-  return (
-    <>
-      <div className="App h-screen bg-slate-200 p-3">
-        <div className="text-center bg-white rounded-lg pb-3 md:mx-56">
-          <div className="block">
-            <TopBar selectedWord={selectedWord} />
-          </div>
-
-          {wordString ? wordBox : <InputArea handleSubmit={handleSubmit} />}
-
-          <CustomButton
-            textContent={"Options"}
-            handleClick={() => setShowOptions(true)}
-          />
-
-          {wordString ? resetButton : ""}
-
-          {showOptions ? (
-            <OptionsMenu hideMenu={() => setShowOptions(false)} />
-          ) : (
-            ""
-          )}
-        </div>
-      </div>
-    </>
-  );
 }
-
-export default App;
