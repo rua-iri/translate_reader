@@ -1,21 +1,22 @@
 import React from "react";
-import rightArrow from "../assets/double-arrow-right-icon.svg";
-import leftArrow from "../assets/double-arrow-left-icon.svg";
+import {
+  ChevronDoubleLeftIcon,
+  ChevronDoubleRightIcon,
+} from "@heroicons/react/20/solid";
 
-export default function Arrow(props) {
-  let arrowSource;
-  if (props.isArrowRight) {
-    arrowSource = rightArrow;
-  } else {
-    arrowSource = leftArrow;
-  }
+export default function Arrow({ isArrowRight, onClick }) {
 
   return (
     <div
       className="invert w-10 flex items-center justify-center select-none cursor-pointer"
-      onClick={props.onClick}
+      onClick={onClick}
     >
-      <img className="w-3/4 mx-2" src={arrowSource} alt="arrow button" />
+      {isArrowRight ? (
+        <ChevronDoubleRightIcon className="size-12 text-black" />
+      ) : (
+        <ChevronDoubleLeftIcon className="size-12 text-black" />
+      )}
+
     </div>
   );
 }
