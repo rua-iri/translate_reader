@@ -10,7 +10,6 @@ import InfoModal from "./components/InfoModal";
 
 export default function App() {
   const [selectedWord, setSelectedWord] = useState("Selected Word");
-  const [showOptions, setShowOptions] = useState(false);
   const [wordString, setWordString] = useState(
     localStorage.getItem("text-input")
   );
@@ -76,16 +75,11 @@ export default function App() {
           <InputArea handleSubmit={handleSubmit} />
         )}
 
-        <CustomButton
-          textContent={"Options"}
-          handleClick={() => setShowOptions(true)}
-        />
-
         {wordString && (
           <CustomButton textContent={"Reset"} handleClick={resetText} />
         )}
 
-        {showOptions && <OptionsMenu hideMenu={() => setShowOptions(false)} />}
+        <OptionsMenu />
       </div>
 
       <InfoModal />

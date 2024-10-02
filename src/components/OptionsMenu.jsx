@@ -1,25 +1,28 @@
-import React from "react";
+import React, { useRef } from "react";
 import Voices from "./Options/Voices";
 import CustomButton from "./CustomButton";
 
-export default function OptionsMenu(props) {
+export default function OptionsMenu() {
+  const optionsRef = useRef();
+
   return (
-    <div
-      className="flex justify-center items-center fixed z-10 start-0 top-0 w-full h-full bg-slate-600 bg-opacity-30"
-      onClick={() => props.hideMenu()}
-    >
-      <div
-        className="rounded-lg bg-white mx-3 w-50 opacity-100 w-1/2 h-1/2 my-2 pb-3"
-        onClick={(e) => e.stopPropagation()}
-      >
-        <div className="rounded-t-lg p-2 text-white bg-slate-600 text-lg font-semibold">
-          Options
+    <>
+      <CustomButton
+        textContent="Options"
+        handleClick={() => optionsRef.current.showModal()}
+      />
+
+      <dialog ref={optionsRef} className="modal">
+        <div className="modal-box">
+          <h3 className="font-bold text-lg">Options</h3>
+
+          <Voices />
         </div>
 
-        <Voices />
-
-        <CustomButton textContent={"Save"} handleClick={props.hideMenu} />
-      </div>
-    </div>
+        <form method="dialog" className="modal-backdrop">
+          <button>close</button>
+        </form>
+      </dialog>
+    </>
   );
 }

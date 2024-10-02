@@ -34,8 +34,8 @@ export default function Voices() {
     <div className="m-3 p-3 font-light">
       <h3 className="font-normal mb-2">Available Voices</h3>
       <div className="grid grid-cols-4">
-        {voiceList.map((speaker) => (
-          <div className="flex flex-col items-center mx-4">
+        {voiceList.map((speaker, index) => (
+          <div key={index} className="flex flex-col items-center mx-4">
             <p className="my-3">{speaker.nameEn}</p>
 
             <AudioPlayer
