@@ -8,7 +8,7 @@ export default function InfoModal() {
     <>
       <div className="absolute bottom-0 m-3">
         <button
-          className="btn glass btn-sm"
+          className="btn glass btn-sm btn-circle"
           onClick={() => modalRef.current.showModal()}
         >
           <InformationCircleIcon className="h-full" />
@@ -17,19 +17,31 @@ export default function InfoModal() {
 
       <dialog id="my_modal_2" className="modal" ref={modalRef}>
         <div className="modal-box">
-          <h3 className="font-bold text-lg">Info</h3>
-          <p>
+          <div className="flex content-center">
+            <img
+              src="/android-chrome-192x192.png"
+              alt="Translate Reader Logo"
+            />
+          </div>
+
+          <h3 className="font-bold text-lg">About</h3>
+
+          <p className="my-5">
             Welcome to the Arabic Reading Assistant. A tool to help intermediate
             and advanced Arabic students read and understand texts with greater
             ease.
           </p>
 
-          <p>
-            It was built by me, Rory McGuigan, and was inspired by the kind of
-            tool I always wished I had while studying at university.
+          <p className="my-5">
+            It was built by me,&nbsp;
+            <a className="link" href="https://rua-iri.com" target="_blank">
+              Rory McGuigan
+            </a>
+            , and was inspired by the kind of tool I always wished I had while
+            studying at university.
           </p>
 
-          <p>
+          <p className="my-5">
             The full source code can be found in my&nbsp;
             <a
               className="link"
@@ -38,6 +50,22 @@ export default function InfoModal() {
             >
               GitHub repository.
             </a>
+          </p>
+
+          <p className="my-5">
+            Also the backend code is located here:&nbsp;
+            <a
+              className="link"
+              href="https://github.com/rua-iri/AraDictImproved"
+              target="_blank"
+            >
+              in this repository.
+            </a>
+          </p>
+
+          <p className="my-5">
+            If you notice anything wrong with the site please report it as an
+            issue there.
           </p>
         </div>
         <form method="dialog" className="modal-backdrop">
