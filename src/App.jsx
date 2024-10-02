@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-import IndividualWord from "./components/IndividualWord";
+import SingleWord from "./components/SingleWord";
 import TopBar from "./components/TopBar";
 import InputArea from "./components/InputArea";
 import OptionsMenu from "./components/OptionsMenu";
@@ -52,7 +52,7 @@ export default function App() {
     const wrdFormatted = wrd.replace(/[.,،/#!$%^&*;:{}=\-_`~()"؛]/g, "");
 
     return (
-      <IndividualWord
+      <SingleWord
         wordContent={wrd}
         key={wrd + index}
         alt={wrdFormatted}
