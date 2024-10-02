@@ -4,7 +4,7 @@ export default function SingleWord({ isSelected, onClick, alt, wordContent }) {
   let fontWeight = "";
 
   if (isSelected) {
-    fontWeight = "bg-slate-200  rounded";
+    fontWeight = "bg-slate-200 rounded";
   }
 
   if (!wordContent) {

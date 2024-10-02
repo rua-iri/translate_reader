@@ -17,7 +17,7 @@ export default function InfoModal() {
 
       <dialog id="my_modal_2" className="modal" ref={modalRef}>
         <div className="modal-box">
-          <div className="flex content-center">
+          <div className="flex justify-center debug">
             <img
               src="/android-chrome-192x192.png"
               alt="Translate Reader Logo"
