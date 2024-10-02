@@ -1,4 +1,4 @@
-import React from "react";
+import { useState } from "react";
 import AudioPlayer from "../AudioPlayer";
 
 export default function Voices() {
@@ -21,7 +21,7 @@ export default function Voices() {
     },
   ];
 
-  const [selectedVoice, setSelectedVoice] = React.useState(
+  const [selectedVoice, setSelectedVoice] = useState(
     localStorage.getItem("selectedVoice")
   );
 
@@ -33,16 +33,18 @@ export default function Voices() {
   return (
     <div className="m-3 p-3 font-light">
       <h3 className="font-normal mb-2">Available Voices</h3>
-      <div className="flex justify-center">
+      <div className="grid grid-cols-4">
         {voiceList.map((speaker) => (
-          <div className="mx-4">
-            {speaker.nameEn}
+          <div className="flex flex-col items-center mx-4">
+            <p className="my-3">{speaker.nameEn}</p>
+
             <AudioPlayer
               textContent={`مرحبا، اسمي ${speaker.nameAr}`}
               speakerName={speaker.nameEn}
             />
+
             <input
-              className="radio radio-info mx-2"
+              className="radio radio-info mx-2 my-3"
               type="radio"
               name="radio-group"
               value={speaker.nameEn}

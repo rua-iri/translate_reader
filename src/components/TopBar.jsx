@@ -1,11 +1,27 @@
-import React from "react";
+import { useState, useEffect } from "react";
 import WordDataContainer from "./WordDataContainer";
 import Arrow from "./Arrow";
 import { fetchWordMeanings } from "/utils/fetcher";
 
+function ExamplesAnchor({ wordSelected }) {
+  const examplesLink =
+    "https://context.reverso.net/translation/arabic-english/" + wordSelected;
+
+  return (
+    <a
+      className="mt-1 mb-10 text-lg text-stone-300 link link-hover"
+      href={examplesLink}
+      target="_blank"
+      rel="noreferrer"
+    >
+      Examples
+    </a>
+  );
+}
+
 export default function TopBar({ selectedWord }) {
-  const [allMeanings, setAllMeanings] = React.useState([]);
-  const [resultCounter, setResultCounter] = React.useState(0);
+  const [allMeanings, setAllMeanings] = useState([]);
+  const [resultCounter, setResultCounter] = useState(0);
 
   const lookupWord = async () => {
     try {
@@ -17,7 +33,7 @@ export default function TopBar({ selectedWord }) {
     }
   };
 
-  React.useEffect(() => {
+  useEffect(() => {
     setResultCounter(0);
     if (selectedWord && selectedWord !== "Selected Word") {
       lookupWord();
@@ -36,21 +52,8 @@ export default function TopBar({ selectedWord }) {
     ? allMeanings[resultCounter].phoneticSpelling
     : selectedWord;
 
-  const examplesLink =
-    "https://context.reverso.net/translation/arabic-english/" + wordSelected;
-  const examplesAnchor = (
-    <a
-      className="mt-1 mb-10 text-lg text-stone-300 link link-hover"
-      href={examplesLink}
-      target="_blank"
-      rel="noreferrer"
-    >
-      Examples
-    </a>
-  );
-
   return (
-    <div className="flex rounded-t-lg mb-1 flex-row-reverse w-full bg-slate-600 text-slate-50">
+    <div className="flex rounded-t-lg py-3 mb-1 flex-row-reverse w-full bg-slate-600 text-slate-50">
       {resultCounter ? (
         <Arrow isArrowRight={true} onClick={() => cycleResults(false)} />
       ) : (
@@ -62,9 +65,13 @@ export default function TopBar({ selectedWord }) {
         dir="rtl"
       >
         <div>{wordSelected}</div>
-        <div>{wordSelected !== "Selected Word" ? examplesAnchor : ""}</div>
+        <div>
+          {wordSelected !== "Selected Word" && (
+            <ExamplesAnchor wordSelected={wordSelected} />
+          )}
+        </div>
       </div>
-      <div className="w-full text-lg">
+      <div className="w-full">
         <WordDataContainer
           allTranslations={allMeanings}
           resCounter={resultCounter}

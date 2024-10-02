@@ -1,5 +1,6 @@
 import { useRef } from "react";
 import { unicodeToBase64 } from "../../utils/textFormatter";
+import { SpeakerWaveIcon } from "@heroicons/react/16/solid";
 
 export default function AudioPlayer({ textContent, speakerName }) {
   let audioLink = "";
@@ -19,10 +20,11 @@ export default function AudioPlayer({ textContent, speakerName }) {
   }
 
   return (
-    <span className="flex items-center content-center">
+    <span>
       <audio ref={audioElem} src={audioLink}></audio>
-      <button className="w-full h-full" onClick={audioClick}>
-        🔊
+
+      <button className="btn btn-sm" onClick={audioClick}>
+        <SpeakerWaveIcon className="h-5" />
       </button>
     </span>
   );

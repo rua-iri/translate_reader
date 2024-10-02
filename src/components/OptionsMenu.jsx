@@ -13,7 +13,7 @@ export default function OptionsMenu(props) {
         onClick={(e) => e.stopPropagation()}
       >
         <div className="rounded-t-lg p-2 text-white bg-slate-600 text-lg font-semibold">
-          Arabic Reading Assistant
+          Options
         </div>
 
         <Voices />
