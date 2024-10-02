@@ -78,7 +78,7 @@ function App() {
   return (
     <>
       <div className="App h-screen bg-slate-200 p-3">
-        <div className="text-center bg-white rounded-lg pb-3">
+        <div className="text-center bg-white rounded-lg pb-3 md:mx-56">
           <div className="block">
             <TopBar selectedWord={selectedWord} />
           </div>

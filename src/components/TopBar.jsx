@@ -40,7 +40,7 @@ export default function TopBar({ selectedWord }) {
     "https://context.reverso.net/translation/arabic-english/" + wordSelected;
   const examplesAnchor = (
     <a
-      className="mt-1 mb-10 text-lg text-stone-300"
+      className="mt-1 mb-10 text-lg text-stone-300 link link-hover"
       href={examplesLink}
       target="_blank"
       rel="noreferrer"
@@ -50,7 +50,7 @@ export default function TopBar({ selectedWord }) {
   );
 
   return (
-    <div className="flex rounded-lg mb-1 flex-row-reverse w-full bg-slate-600 text-slate-50">
+    <div className="flex rounded-t-lg mb-1 flex-row-reverse w-full bg-slate-600 text-slate-50">
       {resultCounter ? (
         <Arrow isArrowRight={true} onClick={() => cycleResults(false)} />
       ) : (
