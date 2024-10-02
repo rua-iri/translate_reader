@@ -1,11 +1,9 @@
-import React from "react";
 import {
   ChevronDoubleLeftIcon,
   ChevronDoubleRightIcon,
 } from "@heroicons/react/20/solid";
 
 export default function Arrow({ isArrowRight, onClick }) {
-
   return (
     <div
       className="invert w-10 flex items-center justify-center select-none cursor-pointer"
@@ -16,7 +14,6 @@ export default function Arrow({ isArrowRight, onClick }) {
       ) : (
         <ChevronDoubleLeftIcon className="size-12 text-black" />
       )}
-
     </div>
   );
 }
