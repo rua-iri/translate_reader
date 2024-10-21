@@ -14,10 +14,14 @@ export default function App() {
     localStorage.getItem("text-input")
   );
 
-  // set default voice if it has not been already set by user
+  // set default values if it has not been already set by user
   localStorage.getItem("selectedVoice")
     ? null
     : localStorage.setItem("selectedVoice", "Leila");
+
+  localStorage.getItem("fontSize")
+    ? null
+    : localStorage.setItem("fontSize", "16");
   let pressTime = Date.now();
 
   // function to set the text to an empty string
