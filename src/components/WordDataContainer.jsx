@@ -1,5 +1,6 @@
 import React from "react";
 import AudioPlayer from "./AudioPlayer";
+import RootModal from "./Modals/RootModal";
 
 export default function WordDataContainer({
   allTranslations,
@@ -12,7 +13,20 @@ export default function WordDataContainer({
   let rootElem;
 
   if (translationArray[resCounter]) {
-    rootElem = <div>{translationArray[resCounter].root}</div>;
+    const rootArray = translationArray[resCounter].root.split("");
+    rootElem = (
+      <button
+        dir="rtl"
+        className={`btn btn-sm`}
+        onClick={() => document.getElementById("root_modal").showModal()}
+      >
+        {rootArray.map((rootLetter, index) => (
+          <div className="inline mx-0.5" key={index}>
+            {rootLetter}
+          </div>
+        ))}
+      </button>
+    );
   } else {
     rootElem = "";
   }
@@ -46,6 +60,7 @@ export default function WordDataContainer({
           />
         </div>
       </div>
+      <RootModal root={translationArray[resCounter]?.root} />
     </div>
   );
 }
