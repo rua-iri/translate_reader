@@ -1,7 +1,7 @@
 import React, { useRef } from "react";
-import Voices from "./Options/Voices";
-import CustomButton from "./CustomButton";
-import FontSize from "./Options/FontSize";
+import Voices from "../Options/Voices";
+import CustomButton from "../CustomButton";
+import FontSize from "../Options/FontSize";
 
 export default function OptionsMenu() {
   const optionsRef = useRef();

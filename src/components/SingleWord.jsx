@@ -1,8 +1,5 @@
-import { useState } from "react";
-
 export default function SingleWord({ isSelected, onClick, alt, wordContent }) {
   let fontDecoration = "";
-  const [fontSize, setFontSize] = useState(localStorage.getItem("fontSize"));
 
   if (isSelected) {
     fontDecoration = "bg-slate-200 rounded";
@@ -14,7 +11,7 @@ export default function SingleWord({ isSelected, onClick, alt, wordContent }) {
     return (
       <span
         dir="rtl"
-        className={`cursor-pointer ${fontDecoration} text-[${fontSize}px]`}
+        className={`cursor-pointer ${fontDecoration}`}
         onClick={() => onClick(alt)}
       >
         {wordContent}

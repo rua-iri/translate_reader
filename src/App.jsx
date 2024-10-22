@@ -3,10 +3,10 @@ import { useState } from "react";
 import SingleWord from "./components/SingleWord";
 import TopBar from "./components/TopBar";
 import InputArea from "./components/InputArea";
-import OptionsMenu from "./components/OptionsMenu";
+import OptionsMenu from "./components/Modals/OptionsMenu";
 import CustomButton from "./components/CustomButton";
 import TextContainer from "./components/TextContainer";
-import InfoModal from "./components/InfoModal";
+import InfoModal from "./components/Modals/InfoModal";
 
 export default function App() {
   const [selectedWord, setSelectedWord] = useState("Selected Word");
@@ -21,7 +21,8 @@ export default function App() {
 
   localStorage.getItem("fontSize")
     ? null
-    : localStorage.setItem("fontSize", "16");
+    : localStorage.setItem("fontSize", "md");
+
   let pressTime = Date.now();
 
   // function to set the text to an empty string
