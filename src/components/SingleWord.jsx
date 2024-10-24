@@ -11,11 +11,10 @@ export default function SingleWord({ isSelected, onClick, alt, wordContent }) {
     return (
       <span
         dir="rtl"
-        className={`cursor-pointer ${fontDecoration}`}
+        className={`cursor-pointer ${fontDecoration} me-1`}
         onClick={() => onClick(alt)}
       >
         {wordContent}
-        &nbsp;
       </span>
     );
   }
