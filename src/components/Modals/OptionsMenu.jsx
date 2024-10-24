@@ -17,8 +17,10 @@ export default function OptionsMenu() {
         <div className="modal-box">
           <h3 className="font-bold text-lg">Options</h3>
 
+          <div className="divider"></div>
           <Voices />
 
+          <div className="divider"></div>
           <FontSize />
         </div>
 

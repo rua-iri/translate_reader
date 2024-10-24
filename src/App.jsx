@@ -1,4 +1,3 @@
-
 import SingleWord from "./components/SingleWord";
 import TopBar from "./components/TopBar";
 import InputArea from "./components/InputArea";
