@@ -9,12 +9,12 @@ function ExamplesAnchor({ wordSelected }) {
 
   return (
     <a
-      className="mt-1 mb-10 text-lg text-stone-300 link link-hover"
+      className="text-xs text-stone-300 link link-hover"
       href={examplesLink}
       target="_blank"
       rel="noreferrer"
     >
-      Examples
+      Reverso Examples
     </a>
   );
 }
@@ -65,11 +65,10 @@ export default function TopBar({ selectedWord }) {
         dir="rtl"
       >
         <div>{wordSelected}</div>
-        <div>
-          {wordSelected !== "Selected Word" && (
-            <ExamplesAnchor wordSelected={wordSelected} />
-          )}
-        </div>
+
+        {wordSelected !== "Selected Word" && (
+          <ExamplesAnchor wordSelected={wordSelected} />
+        )}
       </div>
       <div className="w-full">
         <WordDataContainer
