@@ -1,5 +1,5 @@
-import { useState } from "react";
 import AudioPlayer from "../AudioPlayer";
+import { useDispatch, useSelector } from "react-redux";
 
 export default function Voices() {
   const voiceList = [
@@ -21,13 +21,11 @@ export default function Voices() {
     },
   ];
 
-  const [selectedVoice, setSelectedVoice] = useState(
-    localStorage.getItem("selectedVoice")
-  );
+  const selectedVoice = useSelector((state) => state.voice.value);
+  const dispatch = useDispatch();
 
   function changeSelectedVoice(event) {
-    setSelectedVoice(event.target.value);
-    localStorage.setItem("selectedVoice", event.target.value);
+    dispatch(setSelectedVoice(event.target.value));
   }
 
   return (

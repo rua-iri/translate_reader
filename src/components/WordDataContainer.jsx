@@ -1,6 +1,7 @@
 import React from "react";
 import AudioPlayer from "./AudioPlayer";
 import RootModal from "./Modals/RootModal";
+import { useSelector } from "react-redux";
 
 export default function WordDataContainer({
   allTranslations,
@@ -9,6 +10,8 @@ export default function WordDataContainer({
 }) {
   let translationArray = allTranslations;
   let resultCounter = resCounter;
+
+  const selectedVoice = useSelector((state) => state.voice.value);
 
   let rootElem;
 
@@ -54,10 +57,7 @@ export default function WordDataContainer({
             : "verbForm"}
         </div>
         <div className="w-full">
-          <AudioPlayer
-            textContent={textContent}
-            speakerName={localStorage.getItem("selectedVoice")}
-          />
+          <AudioPlayer textContent={textContent} speakerName={selectedVoice} />
         </div>
       </div>
       <RootModal root={translationArray[resCounter]?.root} />

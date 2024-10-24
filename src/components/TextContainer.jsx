@@ -1,8 +1,7 @@
-import { useEffect, useState } from "react";
+import { useSelector } from "react-redux";
 
 export default function TextContainer({ textContent }) {
-  const [fontSize, setFontSize] = useState(localStorage.getItem("fontSize"));
-
+  const fontSize = useSelector((state) => state.fontSlice.size);
 
   return (
     <div className="m-4 max-h-[25rem] lg:max-h-[40rem] overflow-scroll overflow-x-auto border">
