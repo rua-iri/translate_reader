@@ -1,6 +1,6 @@
 import React from "react";
-import AudioPlayer from "./AudioPlayer";
-import RootModal from "./Modals/RootModal";
+import AudioPlayer from "../AudioPlayer";
+import RootModal from "../Modals/RootModal";
 import { useSelector } from "react-redux";
 
 export default function WordDataContainer({

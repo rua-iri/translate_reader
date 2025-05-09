@@ -5,7 +5,7 @@ import {
 
 export default function Arrow({ isArrowRight, onClick }) {
   return (
-    <div
+    <button
       className="invert w-10 flex items-center justify-center select-none cursor-pointer"
       onClick={onClick}
     >
@@ -14,6 +14,6 @@ export default function Arrow({ isArrowRight, onClick }) {
       ) : (
         <ChevronDoubleLeftIcon className="size-12 text-black" />
       )}
-    </div>
+    </button>
   );
 }
