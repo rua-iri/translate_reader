@@ -8,9 +8,11 @@ export default function FontSize() {
 
   const sizesRange = {
     0: "xs",
-    33: "sm",
-    66: "lg",
-    100: "xl",
+    10: "sm",
+    20: "base",
+    30: "lg",
+    40: "xl",
+    50: "2xl",
   };
 
   function changeFontSize(event) {
@@ -25,25 +27,29 @@ export default function FontSize() {
       <input
         type="range"
         min={0}
-        max="100"
+        max="50"
         value={Object.keys(sizesRange).find(
-          (key) => sizesRange[key] == fontSize
+          (key) => sizesRange[key] === fontSize
         )}
         className="range"
-        step="33"
+        step="10"
         onChange={changeFontSize}
       />
       <div className="flex w-full justify-between px-2 text-xs">
         <span>|</span>
         <span>|</span>
         <span>|</span>
+        <span>|</span>
+        <span>|</span>
+        <span>|</span>
       </div>
       <div className="flex w-full justify-between px-2 text-xs">
-        <span>Min</span>
-        <span></span>
-        <span>Mid</span>
-        <span></span>
-        <span>Max</span>
+        <span>XS</span>
+        <span>S</span>
+        <span>Md</span>
+        <span>L</span>
+        <span>XL</span>
+        <span>XXL</span>
       </div>
     </div>
   );

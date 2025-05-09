@@ -14,6 +14,7 @@ import {
   resetTextContent,
   setTextContent,
 } from "./features/textContent/textContentSlice";
+import Header from "./components/Header";
 
 export default function App() {
   const dispatch = useDispatch();
@@ -63,7 +64,9 @@ export default function App() {
   });
 
   return (
-    <div className="App min-h-svh h-full bg-slate-200 p-3 relative">
+    <div className="App min-h-svh h-full bg-slate-200 relative">
+      <Header />
+
       <div className="text-center bg-white rounded-lg pb-3 mx-8 lg:mx-56">
         <div className="block">
           <TopBar selectedWord={selectedWord} />
