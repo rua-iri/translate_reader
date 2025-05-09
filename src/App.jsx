@@ -1,55 +1,51 @@
-import { useState } from "react";
-
-import SingleWord from "./components/TextSpace/SingleWord";
-import TopBar from "./components/TopBar/TopBar";
-import InputArea from "./components/TextSpace/InputArea";
-import OptionsMenu from "./components/OptionsMenu";
+import SingleWord from "./components/SingleWord";
+import TopBar from "./components/TopBar";
+import InputArea from "./components/InputArea";
+import OptionsMenu from "./components/Modals/OptionsMenu";
 import CustomButton from "./components/CustomButton";
-import TextContainer from "./components/TextSpace/TextContainer";
-import AppInfoModal from "./components/AppInfoModal";
+import TextContainer from "./components/TextContainer";
+import InfoModal from "./components/Modals/InfoModal";
+import { useDispatch, useSelector } from "react-redux";
+import {
+  setSelectedWord,
+  resetSelectedWord,
+} from "./features/selectedWord/selectedWordSlice";
+import {
+  resetTextContent,
+  setTextContent,
+} from "./features/textContent/textContentSlice";
 
 export default function App() {
-  const [selectedWord, setSelectedWord] = useState("Selected Word");
-  const [wordString, setWordString] = useState(
-    localStorage.getItem("text-input")
-  );
+  const dispatch = useDispatch();
+  const selectedWord = useSelector((state) => state.selectedWord.value);
+  const textContent = useSelector((state) => state.textContent.value);
 
-  // set default values if it has not been already set by user
-  localStorage.getItem("selectedVoice")
-    ? null
-    : localStorage.setItem("selectedVoice", "Leila");
-
-  localStorage.getItem("fontSize")
-    ? null
-    : localStorage.setItem("fontSize", "16");
   let pressTime = Date.now();
 
   // function to set the text to an empty string
   function resetText() {
-    setWordString("");
-    setSelectedWord("Selected Word");
-    localStorage.removeItem("text-input");
+    dispatch(resetTextContent());
+    dispatch(resetSelectedWord());
   }
 
   function handleSubmit(event) {
     event.preventDefault();
     const inputText = event.target[0].value;
-    setWordString(inputText);
-    localStorage.setItem("text-input", inputText);
+    dispatch(setTextContent(inputText));
   }
 
   //function to be executed when a word is clicked
   function activateWord(elemAlt) {
     // check that 500 seconds have passed the same so the server isn't spammed
     if (Date.now() >= pressTime + 500 && elemAlt !== selectedWord) {
-      setSelectedWord(elemAlt);
+      dispatch(setSelectedWord(elemAlt));
       pressTime = Date.now();
       console.log(elemAlt);
     }
   }
 
   // split each word into the string into an array
-  const wordAra = wordString?.replaceAll("\n", " ").split(" ");
+  const wordAra = textContent?.replaceAll("\n", " ").split(" ");
 
   //then map each element in the array to the Word component
   const wordCollection = wordAra?.map((wrd, index) => {
@@ -73,13 +69,13 @@ export default function App() {
           <TopBar selectedWord={selectedWord} />
         </div>
 
-        {wordString ? (
+        {textContent ? (
           <TextContainer textContent={wordCollection} />
         ) : (
           <InputArea handleSubmit={handleSubmit} />
         )}
 
-        {wordString && (
+        {textContent && (
           <CustomButton textContent={"Reset"} handleClick={resetText} />
         )}
 

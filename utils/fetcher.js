@@ -5,6 +5,26 @@ export async function fetchWordMeanings(word) {
     const response = await fetch(`${BASE_API_URL}/word/${word}`);
     const data = await response.json();
 
+    if (!data.data) {
+      return [];
+    }
+
+    return data.data;
+  } catch (error) {
+    console.log(error);
+    return [];
+  }
+}
+
+export async function fetchRootMeanings(root) {
+  try {
+    const response = await fetch(`${BASE_API_URL}/root/${root}`);
+    const data = await response.json();
+
+    if (!data.data) {
+      return [];
+    }
+
     return data.data;
   } catch (error) {
     console.log(error);

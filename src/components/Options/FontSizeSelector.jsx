@@ -1,12 +1,22 @@
-import { useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { setFontSize } from "../../features/font/font";
 
-export default function FontSizeSelector() {
-  const [fontSize, setFontSize] = useState(localStorage.getItem("fontSize"));
+export default function FontSize() {
+  const fontSize = useSelector((state) => state.fontSlice.size);
+
+  const dispatch = useDispatch();
+
+  const sizesRange = {
+    0: "xs",
+    33: "sm",
+    66: "lg",
+    100: "xl",
+  };
 
   function changeFontSize(event) {
-    setFontSize(event.target.value);
-    localStorage.setItem("fontSize", event.target.value);
-    localStorage.setItem("fontSize", event.target.value);
+    const fontSizeKey = event.target.value;
+    console.log(fontSizeKey);
+    dispatch(setFontSize(sizesRange[fontSizeKey]));
   }
 
   return (
@@ -14,16 +24,16 @@ export default function FontSizeSelector() {
       <h3 className="font-normal mb-2">Font Size</h3>
       <input
         type="range"
-        min={5}
-        max="50"
-        value={fontSize}
+        min={0}
+        max="100"
+        value={Object.keys(sizesRange).find(
+          (key) => sizesRange[key] == fontSize
+        )}
         className="range"
-        step="1"
+        step="33"
         onChange={changeFontSize}
       />
       <div className="flex w-full justify-between px-2 text-xs">
-        <span>|</span>
-        <span>|</span>
         <span>|</span>
         <span>|</span>
         <span>|</span>

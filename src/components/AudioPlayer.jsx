@@ -23,7 +23,11 @@ export default function AudioPlayer({ textContent, speakerName }) {
     <span>
       <audio ref={audioElem} src={audioLink}></audio>
 
-      <button className="btn btn-sm" onClick={audioClick}>
+      <button
+        className={`btn btn-sm`}
+        disabled={textContent !== "Selected Word" ? "" : "disabled"}
+        onClick={audioClick}
+      >
         <SpeakerWaveIcon className="h-5" />
       </button>
     </span>

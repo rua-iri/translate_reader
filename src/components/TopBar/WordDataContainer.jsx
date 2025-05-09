@@ -1,17 +1,38 @@
 import React from "react";
-import AudioPlayer from "../AudioPlayer";
+import AudioPlayer from "./AudioPlayer";
+import RootModal from "./Modals/RootModal";
+import { useSelector } from "react-redux";
 
-export default function WordDataContainer({allTranslations, resCounter, textContent}) {
+export default function WordDataContainer({
+  allTranslations,
+  resCounter,
+  textContent,
+}) {
   let translationArray = allTranslations;
   let resultCounter = resCounter;
 
-  // let rootElem;
+  const selectedVoice = useSelector((state) => state.voice.value);
 
-  // if(translationArray[resCounter]) {
-  //     rootElem = <a href={"https://rua-iri.github.io/rootreference?q=" + translationArray[resCounter].root}>{translationArray[resCounter].root}</a>
-  // } else {
-  //     rootElem = "";
-  // }
+  let rootElem;
+
+  if (translationArray[resCounter]) {
+    const rootArray = translationArray[resCounter].root.split("");
+    rootElem = (
+      <button
+        dir="rtl"
+        className={`btn btn-sm`}
+        onClick={() => document.getElementById("root_modal").showModal()}
+      >
+        {rootArray.map((rootLetter, index) => (
+          <div className="inline mx-0.5" key={index}>
+            {rootLetter}
+          </div>
+        ))}
+      </button>
+    );
+  } else {
+    rootElem = "";
+  }
 
   return (
     <div>
@@ -29,21 +50,17 @@ export default function WordDataContainer({allTranslations, resCounter, textCont
       </div>
 
       <div className="flex w-full h-8">
-        {/* <div className="w-full arab-text">
-                    {rootElem}
-                </div> */}
+        <div className="w-full arab-text">{rootElem}</div>
         <div className="w-full">
           {translationArray[resultCounter]
             ? translationArray[resultCounter].verbForm
             : "verbForm"}
         </div>
         <div className="w-full">
-          <AudioPlayer
-                textContent={textContent}
-                speakerName={localStorage.getItem("selectedVoice")}
-            />
+          <AudioPlayer textContent={textContent} speakerName={selectedVoice} />
         </div>
       </div>
+      <RootModal root={translationArray[resCounter]?.root} />
     </div>
   );
 }
