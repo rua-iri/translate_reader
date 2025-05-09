@@ -1,7 +1,7 @@
 import { useState } from "react";
 import AudioPlayer from "../AudioPlayer";
 
-export default function Voices() {
+export default function VoicesSelector() {
   const voiceList = [
     {
       nameEn: "Leila",

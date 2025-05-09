@@ -4,6 +4,8 @@ export default function SingleWord({ isSelected, onClick, alt, wordContent }) {
   let fontDecoration = "";
   const [fontSize, setFontSize] = useState(localStorage.getItem("fontSize"));
 
+  // alert(fontSize)
+
   if (isSelected) {
     fontDecoration = "bg-slate-200 rounded";
   }

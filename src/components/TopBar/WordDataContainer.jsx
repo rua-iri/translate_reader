@@ -1,5 +1,5 @@
 import React from "react";
-import AudioPlayer from "./AudioPlayer";
+import AudioPlayer from "../AudioPlayer";
 
 export default function WordDataContainer({allTranslations, resCounter, textContent}) {
   let translationArray = allTranslations;

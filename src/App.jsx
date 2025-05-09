@@ -1,12 +1,12 @@
 import { useState } from "react";
 
-import SingleWord from "./components/SingleWord";
-import TopBar from "./components/TopBar";
-import InputArea from "./components/InputArea";
+import SingleWord from "./components/TextSpace/SingleWord";
+import TopBar from "./components/TopBar/TopBar";
+import InputArea from "./components/TextSpace/InputArea";
 import OptionsMenu from "./components/OptionsMenu";
 import CustomButton from "./components/CustomButton";
-import TextContainer from "./components/TextContainer";
-import InfoModal from "./components/InfoModal";
+import TextContainer from "./components/TextSpace/TextContainer";
+import AppInfoModal from "./components/AppInfoModal";
 
 export default function App() {
   const [selectedWord, setSelectedWord] = useState("Selected Word");
@@ -86,7 +86,7 @@ export default function App() {
         <OptionsMenu />
       </div>
 
-      <InfoModal />
+      <AppInfoModal />
     </div>
   );
 }

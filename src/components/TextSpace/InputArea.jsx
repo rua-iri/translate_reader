@@ -1,5 +1,5 @@
 import React from "react";
-import CustomButton from "./CustomButton";
+import CustomButton from "../CustomButton";
 
 export default function InputArea({ handleSubmit }) {
   return (

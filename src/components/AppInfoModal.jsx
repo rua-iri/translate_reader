@@ -1,7 +1,7 @@
 import { useRef } from "react";
 import { InformationCircleIcon } from "@heroicons/react/24/solid";
 
-export default function InfoModal() {
+export default function AppInfoModal() {
   const modalRef = useRef();
 
   return (

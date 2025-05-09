@@ -1,7 +1,7 @@
 import React, { useRef } from "react";
-import Voices from "./Options/Voices";
+import VoicesSelector from "./Options/VoicesSelector";
 import CustomButton from "./CustomButton";
-import FontSize from "./Options/FontSize";
+import FontSizeSelector from "./Options/FontSizeSelector";
 
 export default function OptionsMenu() {
   const optionsRef = useRef();
@@ -17,9 +17,9 @@ export default function OptionsMenu() {
         <div className="modal-box">
           <h3 className="font-bold text-lg">Options</h3>
 
-          <Voices />
+          <VoicesSelector />
 
-          <FontSize />
+          <FontSizeSelector />
         </div>
 
         <form method="dialog" className="modal-backdrop">
