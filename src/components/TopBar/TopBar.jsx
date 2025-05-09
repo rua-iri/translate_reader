@@ -54,11 +54,11 @@ export default function TopBar({ selectedWord }) {
 
   return (
     <div className="flex rounded-t-lg py-3 mb-1 flex-row-reverse w-full bg-slate-600 text-slate-50">
-      {resultCounter ? (
-        <Arrow isArrowRight={true} onClick={() => cycleResults(false)} />
-      ) : (
-        ""
-      )}
+      <Arrow
+        isArrowRight={true}
+        onClick={() => cycleResults(false)}
+        isDisabled={!resultCounter}
+      />
 
       <div
         className="flex flex-col px-2 text-xl items-center justify-center"
@@ -78,11 +78,11 @@ export default function TopBar({ selectedWord }) {
         />
       </div>
 
-      {resultCounter < allMeanings.length - 1 ? (
-        <Arrow isArrowRight={false} onClick={() => cycleResults(true)} />
-      ) : (
-        ""
-      )}
+      <Arrow
+        isArrowRight={false}
+        onClick={() => cycleResults(true)}
+        isDisabled={!(resultCounter < allMeanings.length - 1)}
+      />
     </div>
   );
 }

@@ -37,7 +37,13 @@ export default function FontSize() {
         <span>|</span>
         <span>|</span>
         <span>|</span>
-        <span>|</span>
+      </div>
+      <div className="flex w-full justify-between px-2 text-xs">
+        <span>Min</span>
+        <span></span>
+        <span>Mid</span>
+        <span></span>
+        <span>Max</span>
       </div>
     </div>
   );

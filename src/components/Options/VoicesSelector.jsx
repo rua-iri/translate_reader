@@ -1,7 +1,8 @@
 import AudioPlayer from "../AudioPlayer";
 import { useDispatch, useSelector } from "react-redux";
+import { setVoice } from "../../features/voice/voiceSlice";
 
-export default function Voices() {
+export default function VoicesSelector() {
   const voiceList = [
     {
       nameEn: "Leila",
@@ -25,7 +26,7 @@ export default function Voices() {
   const dispatch = useDispatch();
 
   function changeSelectedVoice(event) {
-    dispatch(setSelectedVoice(event.target.value));
+    dispatch(setVoice(event.target.value));
   }
 
   return (
