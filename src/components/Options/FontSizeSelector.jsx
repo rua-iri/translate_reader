@@ -29,7 +29,7 @@ export default function FontSize() {
         min={0}
         max="50"
         value={Object.keys(sizesRange).find(
-          (key) => sizesRange[key] == fontSize
+          (key) => sizesRange[key] === fontSize
         )}
         className="range"
         step="10"

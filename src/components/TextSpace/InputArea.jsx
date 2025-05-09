@@ -5,7 +5,7 @@ export default function InputArea({ handleSubmit }) {
     <div className="my-3">
       <form onSubmit={() => handleSubmit(event)}>
         <div className="flex flex-col items-center">
-          <label htmlFor="input-textarea">Input Arabic Text Here</label>
+          <label htmlFor="input-textarea">Input Arabic Text Below</label>
           <textarea
             dir="rtl"
             className="h-60 w-10/12 text-lg m-2 resize-none outline-double outline-1 outline-slate-200 p-5"
