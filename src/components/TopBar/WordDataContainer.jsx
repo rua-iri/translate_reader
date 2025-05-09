@@ -1,4 +1,3 @@
-import React from "react";
 import AudioPlayer from "../AudioPlayer";
 import RootModal from "../Modals/RootModal";
 import { useSelector } from "react-redux";

@@ -1,4 +1,4 @@
-import React, { useRef } from "react";
+import { useRef } from "react";
 import Voices from "../Options/VoicesSelector";
 import CustomButton from "../CustomButton";
 import FontSize from "../Options/FontSizeSelector";
