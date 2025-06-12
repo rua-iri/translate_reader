@@ -1,6 +1,5 @@
 import { useEffect, useState } from "react";
 import { fetchRootMeanings } from "../../../utils/fetcher";
-import { root } from "postcss";
 
 export default function RootModal({ root }) {
   const [rootData, setRootData] = useState({});
