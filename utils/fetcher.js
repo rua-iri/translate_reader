@@ -18,7 +18,7 @@ export async function fetchWordMeanings(word) {
 
 export async function fetchRootMeanings(root) {
   try {
-    const response = await fetch(`${BASE_API_URL}/root/${root}`);
+    const response = await fetch(`${BASE_API_URL}/root/lane/${root}`);
     const data = await response.json();
 
     if (!data.data) {
