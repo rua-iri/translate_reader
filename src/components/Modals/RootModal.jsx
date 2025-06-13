@@ -7,6 +7,8 @@ export default function RootModal({ root }) {
   async function getRootMeaning() {
     if (root) {
       setRootData(await fetchRootMeanings(root));
+    } else {
+      setRootData({});
     }
   }
 
@@ -16,7 +18,7 @@ export default function RootModal({ root }) {
 
   return (
     <dialog id="root_modal" className="modal text-black">
-      <div className="modal-box">
+      <div className="modal-box h-96">
         <h3 className="font-bold text-lg">
           Root:
           <span className="badge badge-lg badge-neutral mx-2 p-3">{root}</span>
@@ -32,8 +34,6 @@ export default function RootModal({ root }) {
 }
 
 function RootDescription({ rootMeanings }) {
-  console.log(JSON.stringify(rootMeanings));
-  console.log(typeof rootMeanings);
 
   if (!rootMeanings || Object.keys(rootMeanings).length === 0) {
     return <div>No Description Found</div>;

@@ -16,19 +16,22 @@ export default function WordDataContainer({
 
   if (translationArray[resCounter]) {
     const rootArray = translationArray[resCounter].root.split("");
-    rootElem = (
-      <button
-        dir="rtl"
-        className={`btn btn-sm`}
-        onClick={() => document.getElementById("root_modal").showModal()}
-      >
-        {rootArray.map((rootLetter, index) => (
-          <div className="inline mx-0.5" key={index}>
-            {rootLetter}
-          </div>
-        ))}
-      </button>
-    );
+    rootElem =
+      rootArray.length === 0 ? (
+        <div></div>
+      ) : (
+        <button
+          dir="rtl"
+          className={`btn btn-sm`}
+          onClick={() => document.getElementById("root_modal").showModal()}
+        >
+          {rootArray.map((rootLetter, index) => (
+            <div className="inline mx-0.5" key={index}>
+              {rootLetter}
+            </div>
+          ))}
+        </button>
+      );
   } else {
     rootElem = "";
   }
