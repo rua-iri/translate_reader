@@ -30,22 +30,34 @@ export default function RootModal({ root }) {
           <span className="badge badge-lg badge-neutral mx-2 p-3">{root}</span>
         </h3>
         <div className="divider"></div>
-        <div>
-          <input
-            type="radio"
-            name="dictionary-radio"
-            className="radio"
-            data-dictionary-name="lane"
-            onClick={(e) => changeDictionary(e)}
-            defaultChecked
-          />
-          <input
-            type="radio"
-            name="dictionary-radio"
-            className="radio"
-            data-dictionary-name="hans"
-            onClick={(e) => changeDictionary(e)}
-          />
+        <div className="flex justify-center gap-3">
+          <div>
+            <label className="block" htmlFor="laneSelector">
+              Lane's Lexicon
+            </label>
+            <input
+              id="laneSelector"
+              type="radio"
+              name="dictionary-radio"
+              className="radio"
+              data-dictionary-name="lane"
+              onClick={(e) => changeDictionary(e)}
+              defaultChecked
+            />
+          </div>
+          <div>
+            <label className="block" htmlFor="hansSelector">
+              Hans Wehr
+            </label>
+            <input
+              id="hansSelector"
+              type="radio"
+              name="dictionary-radio"
+              className="radio"
+              data-dictionary-name="hans"
+              onClick={(e) => changeDictionary(e)}
+            />
+          </div>
         </div>
         <div className="divider"></div>
         <RootDescription
