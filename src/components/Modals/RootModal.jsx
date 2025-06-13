@@ -46,7 +46,7 @@ function RootDescription({ rootMeanings }) {
     >
       <input type="radio" name="root-accordion" defaultChecked={index === 0} />
       <div className="collapse-title font-semibold" dir="ltr">
-        {rootMeaning.root}
+        {rootMeaning.word}
       </div>
       <span
         className="collapse-content"
