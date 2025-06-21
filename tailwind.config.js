@@ -4,6 +4,5 @@ module.exports = {
   theme: {
     extend: {},
   },
-  plugins: [require("daisyui")],
   safelist: ["text-xs", "text-sm", "text-base", "text-lg", "text-2xl"],
 };

@@ -4,7 +4,7 @@ export default function SingleWord({ isSelected, onClick, alt, wordContent }) {
   // alert(fontSize)
 
   if (isSelected) {
-    fontDecoration = "bg-slate-200 rounded";
+    fontDecoration = "bg-slate-200 rounded-sm";
   }
 
   if (!wordContent) {

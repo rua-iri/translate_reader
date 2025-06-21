@@ -7,7 +7,7 @@ export default function InputArea({ handleSubmit }) {
         <div className="flex flex-col items-center">
           <textarea
             dir="rtl"
-            className="h-60 w-10/12 text-lg m-2 resize-none outline-double outline-1 outline-slate-200 p-5"
+            className="h-60 w-10/12 text-lg m-2 resize-none textarea textarea-neutral"
             id="input-textarea"
             name="input-textarea"
             placeholder="Input Arabic Text Here"
